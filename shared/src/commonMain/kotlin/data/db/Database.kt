@@ -1,4 +1,4 @@
-package db
+package data.db
 
 import entity.Links
 import entity.Patch

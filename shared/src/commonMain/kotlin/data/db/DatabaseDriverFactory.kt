@@ -1,4 +1,4 @@
-package db
+package data.db
 
 import app.cash.sqldelight.db.SqlDriver
 
