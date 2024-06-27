@@ -1,61 +1,61 @@
-CREATE TABLE CourseTable (
+CREATE TABLE CourseEntity (
     id TEXT PRIMARY KEY,
     name TEXT NOT NULL,
     instructor TEXT NOT NULL,
     topics TEXT NOT NULL
 );
 
-CREATE TABLE StudentTable (
+CREATE TABLE StudentEntity (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     birth TEXT NOT NULL,
     name TEXT NOT NULL,
-    courseId TEXT REFERENCES CourseTable(id)
+    courseId TEXT REFERENCES CourseEntity(id)
 );
 
 -- Insert Course
 insertCourse:
-INSERT INTO CourseTable (id, name, instructor, topics) VALUES (?, ?, ?, ?);
+INSERT INTO CourseEntity (id, name, instructor, topics) VALUES (?, ?, ?, ?);
 
 -- Insert Student
 insertStudent:
-INSERT INTO StudentTable (birth, name, courseId) VALUES (?, ?, ?);
+INSERT INTO StudentEntity (birth, name, courseId) VALUES (?, ?, ?);
 
 -- Remove All Courses
 removeAllCourses:
-DELETE FROM CourseTable;
+DELETE FROM CourseEntity;
 
 -- Remove All Students
 removeAllStudents:
-DELETE FROM StudentTable;
+DELETE FROM StudentEntity;
 
 -- Get All Courses
 getCourses:
-SELECT * FROM CourseTable;
+SELECT * FROM CourseEntity;
 
 -- Get All Students
 getStudents:
-SELECT * FROM StudentTable;
+SELECT * FROM StudentEntity;
 
 -- Get Course By ID
 getCourseById:
-SELECT * FROM CourseTable WHERE id = ?;
+SELECT * FROM CourseEntity WHERE id = ?;
 
 -- Get Student By ID
 getStudentById:
-SELECT * FROM StudentTable WHERE id = ?;
+SELECT * FROM StudentEntity WHERE id = ?;
 
 -- Update Course
 updateCourse:
-UPDATE CourseTable
+UPDATE CourseEntity
 SET name = ?, instructor = ?, topics = ?
 WHERE id = ?;
 
 -- Update Student
 updateStudent:
-UPDATE StudentTable
+UPDATE StudentEntity
 SET birth = ?, name = ?, courseId = ?
 WHERE id = ?;
 
 -- Get Students By Course ID
 getStudentsByCourseId:
-SELECT * FROM StudentTable WHERE courseId = ?;
+SELECT * FROM StudentEntity WHERE courseId = ?;

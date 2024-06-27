@@ -1,22 +1,20 @@
 package data.local.dao
 
-import data.model.local.StudentEntity
+import org.sam.multiplatfrombase.StudentEntity
+import framework.network.safeQuery
 import org.sam.multiplatfrom_base.AppDatabase
 
 class StudentDao(private val database: AppDatabase) {
 
-    fun getStudent(id: String): StudentEntity {
-        val query = database.appDatabaseQueries.getStudentById(id.toLong()).executeAsOne()
-        return StudentEntity(query.id, query.courseId, query.name, query.birth)
+    suspend fun getStudent(id: String) = safeQuery {
+        return@safeQuery database.appDatabaseQueries.getStudentById(id.toLong()).executeAsOne()
     }
 
-    fun getListStudent(): List<StudentEntity> {
-        return database.appDatabaseQueries.getStudents().executeAsList().map {
-            StudentEntity(it.id, it.courseId, it.name, it.birth)
-        }
+    suspend fun getListStudent() = safeQuery {
+        return@safeQuery database.appDatabaseQueries.getStudents().executeAsList()
     }
 
-    fun updateStudent(studentEntity: StudentEntity) {
+    suspend fun updateStudent(studentEntity: StudentEntity) = safeQuery {
         database.appDatabaseQueries.updateStudent(
             studentEntity.birth,
             studentEntity.name,
@@ -25,7 +23,7 @@ class StudentDao(private val database: AppDatabase) {
         )
     }
 
-    fun insertListStudent(studentEntities: List<StudentEntity>) {
+    suspend fun insertListStudent(studentEntities: List<StudentEntity>)= safeQuery {
         studentEntities.forEach {
             database.appDatabaseQueries.insertStudent(
                 it.birth,
@@ -35,9 +33,7 @@ class StudentDao(private val database: AppDatabase) {
         }
     }
 
-    fun getStudentByCourseId(courseId: String): List<StudentEntity> {
-        return database.appDatabaseQueries.getStudentsByCourseId(courseId).executeAsList().map {
-            StudentEntity(it.id, it.courseId, it.name, it.birth)
-        }
+    suspend fun getStudentByCourseId(courseId: String): List<StudentEntity> = safeQuery{
+        return@safeQuery database.appDatabaseQueries.getStudentsByCourseId(courseId).executeAsList()
     }
 }

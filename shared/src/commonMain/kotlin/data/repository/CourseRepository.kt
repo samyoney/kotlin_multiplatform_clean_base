@@ -1,7 +1,7 @@
 package data.repository
 
 import data.local.dao.CourseDao
-import data.model.local.CourseEntity
+import org.sam.multiplatfrombase.CourseEntity
 import data.remote.service.CourseService
 
 class CourseRepository(
@@ -10,7 +10,7 @@ class CourseRepository(
 ) {
     suspend fun fetchCourses() = service.fetch()
 
-    fun insertListCourse(courseEntities: List<CourseEntity>) = courseDao.insertListCourse(courseEntities)
+    suspend fun insertListCourse(courseEntities: List<CourseEntity>) = courseDao.insertListCourse(courseEntities)
 
-    fun getListCourse() = courseDao.getListCourse()
+    suspend fun getListCourse() = courseDao.getListCourse()
 }

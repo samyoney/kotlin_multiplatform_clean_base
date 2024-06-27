@@ -1,10 +1,10 @@
 package data.model.dto
 
-import data.model.local.CourseEntity
-import data.model.local.StudentEntity
+import org.sam.multiplatfrombase.CourseEntity
+import org.sam.multiplatfrombase.StudentEntity
 
 fun CourseEntity.toDto() = CourseDto(
-    id = id, name = name, instructor = instructor, topics = topics
+    id = id, name = name, instructor = instructor, topics = topics.split(";")
 )
 
 fun StudentEntity.toDto() = StudentDto(

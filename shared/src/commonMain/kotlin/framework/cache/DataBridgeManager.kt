@@ -2,6 +2,7 @@ package framework.cache
 
 import kotlin.reflect.KClass
 
+@Suppress("UNCHECKED_CAST")
 class DataBridgeManager {
 
     companion object {

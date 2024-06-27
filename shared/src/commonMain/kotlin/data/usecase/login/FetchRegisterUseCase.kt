@@ -1,9 +1,7 @@
 package data.usecase.login
 
-import data.model.remote.response.RegisterResponse
 import data.repository.AccountRepository
-import framework.network.RequestState
-import framework.network.safeFetchApi
+import kotlinx.coroutines.flow.flow
 
 class FetchRegisterUseCase(private val repository: AccountRepository) {
 
@@ -13,7 +11,7 @@ class FetchRegisterUseCase(private val repository: AccountRepository) {
         courseId: String,
         name: String,
         birth: String
-    ): RequestState<RegisterResponse> {
-        return safeFetchApi { repository.register(username, password, courseId, name, birth) }
+    ) = flow {
+        emit(repository.register(username, password, courseId, name, birth))
     }
 }

@@ -1,13 +1,11 @@
 package data.usecase.enroll
 
-import data.model.remote.response.StudentResponse
 import data.repository.StudentRepository
-import framework.network.RequestState
-import framework.network.safeFetchApi
+import kotlinx.coroutines.flow.flow
 
 class FetchStudentsUseCase(private val repository: StudentRepository) {
 
-    suspend operator fun invoke(): RequestState<StudentResponse> {
-        return safeFetchApi { repository.fetchStudents() }
+    operator fun invoke() = flow {
+        emit(repository.fetchStudents())
     }
 }

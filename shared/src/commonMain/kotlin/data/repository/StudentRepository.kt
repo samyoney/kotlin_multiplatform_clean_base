@@ -1,7 +1,7 @@
 package data.repository
 
 import data.local.dao.StudentDao
-import data.model.local.StudentEntity
+import org.sam.multiplatfrombase.StudentEntity
 import data.remote.service.StudentService
 
 class StudentRepository(
@@ -11,14 +11,14 @@ class StudentRepository(
 
     suspend fun fetchStudents() = studentService.fetch()
 
-    fun getStudent(id:String) = studentDao.getStudent(id)
+    suspend fun getStudent(id:String) = studentDao.getStudent(id)
 
-    fun getListStudent() = studentDao.getListStudent()
+    suspend fun getListStudent() = studentDao.getListStudent()
 
-    fun updateStudent(studentEntity: StudentEntity) = studentDao.updateStudent(studentEntity)
+    suspend fun updateStudent(studentEntity: StudentEntity) = studentDao.updateStudent(studentEntity)
 
-    fun insertListStudent(studentEntities: List<StudentEntity>) = studentDao.insertListStudent(studentEntities)
+    suspend fun insertListStudent(studentEntities: List<StudentEntity>) = studentDao.insertListStudent(studentEntities)
 
-    fun getStudentByCourseId(courseId: String) = studentDao.getStudentByCourseId(courseId)
+    suspend fun getStudentByCourseId(courseId: String) = studentDao.getStudentByCourseId(courseId)
 
 }

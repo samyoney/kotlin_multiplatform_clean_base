@@ -1,16 +1,17 @@
 package data.usecase.enroll
 
-import data.model.local.StudentEntity
+import org.sam.multiplatfrombase.StudentEntity
 import data.model.remote.response.StudentResponse
 import data.repository.StudentRepository
+import kotlinx.coroutines.flow.flow
 
 
 class SaveStudentsUseCase(private val studentRepository: StudentRepository) {
 
-    operator fun invoke(students: List<StudentResponse.Student>) {
+    operator fun invoke(students: List<StudentResponse.Student>) = flow {
         val listStudentEntity = students.map {
-            StudentEntity(name = it.name, birth = it.birth)
+            StudentEntity(id = it.id.toLong(), name = it.name, birth = it.birth, courseId = null)
         }
-        studentRepository.insertListStudent(listStudentEntity)
+        emit(studentRepository.insertListStudent(listStudentEntity))
     }
 }

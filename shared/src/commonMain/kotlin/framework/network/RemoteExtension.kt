@@ -12,3 +12,9 @@ suspend fun <T : Any> safeFetchApi(call: suspend () -> T): RequestState<T> = wit
         RequestState.Error(ex)
     }
 }
+
+suspend fun <T : Any> safeQuery(call: suspend () -> T): T = withContext(Dispatchers.IO) {
+    call()
+}
+
+

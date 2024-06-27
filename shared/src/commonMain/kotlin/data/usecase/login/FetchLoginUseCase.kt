@@ -1,13 +1,11 @@
 package data.usecase.login
 
-import data.model.remote.response.LoginResponse
 import data.repository.AccountRepository
-import framework.network.RequestState
-import framework.network.safeFetchApi
+import kotlinx.coroutines.flow.flow
 
 class FetchLoginUseCase(private val repository: AccountRepository) {
 
-    suspend operator fun invoke(username: String, password: String): RequestState<LoginResponse> {
-        return safeFetchApi { repository.login(username, password) }
+    suspend operator fun invoke(username: String, password: String) = flow {
+        emit(repository.login(username, password))
     }
 }
