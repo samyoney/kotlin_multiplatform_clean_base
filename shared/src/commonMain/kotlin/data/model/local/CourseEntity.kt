@@ -12,7 +12,4 @@ data class CourseEntity(
     @SerialName("instructor")
     val instructor: String,
     @SerialName("topics")
-    val topics: List<String>,
-
-//    var student: List<StudentEntity>?
-)
+    val topics: List<String>, )

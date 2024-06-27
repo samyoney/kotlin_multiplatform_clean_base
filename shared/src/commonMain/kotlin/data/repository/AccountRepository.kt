@@ -26,7 +26,7 @@ class AccountRepository(
 
     var username: String
         get() {
-            return deviceStorageManager.read(USERNAME_KEY, String())
+            return deviceStorageManager.read(USERNAME_KEY) ?: String()
         }
         set(value) {
             deviceStorageManager.write(USERNAME_KEY, value)
@@ -34,7 +34,7 @@ class AccountRepository(
 
     var password: String
         get() {
-            return deviceStorageManager.read(PASSWORD_KEY, String())
+            return deviceStorageManager.read(PASSWORD_KEY) ?: String()
         }
         set(value) {
             deviceStorageManager.write(PASSWORD_KEY, value)

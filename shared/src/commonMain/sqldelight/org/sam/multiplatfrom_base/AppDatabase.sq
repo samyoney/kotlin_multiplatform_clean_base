@@ -1,23 +1,61 @@
-import kotlin.Boolean;
-
-CREATE TABLE Launch (
-    flightNumber INTEGER NOT NULL,
-    missionName TEXT NOT NULL,
-    details TEXT,
-    launchSuccess INTEGER AS Boolean DEFAULT NULL,
-    launchDateUTC TEXT NOT NULL,
-    patchUrlSmall TEXT,
-    patchUrlLarge TEXT,
-    articleUrl TEXT
+CREATE TABLE CourseTable (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    instructor TEXT NOT NULL,
+    topics TEXT NOT NULL
 );
 
-insertLaunch:
-INSERT INTO Launch(flightNumber, missionName, details, launchSuccess, launchDateUTC, patchUrlSmall, patchUrlLarge, articleUrl)
-VALUES(?, ?, ?, ?, ?, ?, ?, ?);
+CREATE TABLE StudentTable (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    birth TEXT NOT NULL,
+    name TEXT NOT NULL,
+    courseId TEXT REFERENCES CourseTable(id)
+);
 
-removeAllLaunches:
-DELETE FROM Launch;
+-- Insert Course
+insertCourse:
+INSERT INTO CourseTable (id, name, instructor, topics) VALUES (?, ?, ?, ?);
 
-selectAllLaunchesInfo:
-SELECT Launch.*
-FROM Launch;
+-- Insert Student
+insertStudent:
+INSERT INTO StudentTable (birth, name, courseId) VALUES (?, ?, ?);
+
+-- Remove All Courses
+removeAllCourses:
+DELETE FROM CourseTable;
+
+-- Remove All Students
+removeAllStudents:
+DELETE FROM StudentTable;
+
+-- Get All Courses
+getCourses:
+SELECT * FROM CourseTable;
+
+-- Get All Students
+getStudents:
+SELECT * FROM StudentTable;
+
+-- Get Course By ID
+getCourseById:
+SELECT * FROM CourseTable WHERE id = ?;
+
+-- Get Student By ID
+getStudentById:
+SELECT * FROM StudentTable WHERE id = ?;
+
+-- Update Course
+updateCourse:
+UPDATE CourseTable
+SET name = ?, instructor = ?, topics = ?
+WHERE id = ?;
+
+-- Update Student
+updateStudent:
+UPDATE StudentTable
+SET birth = ?, name = ?, courseId = ?
+WHERE id = ?;
+
+-- Get Students By Course ID
+getStudentsByCourseId:
+SELECT * FROM StudentTable WHERE courseId = ?;

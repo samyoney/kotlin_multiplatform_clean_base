@@ -69,6 +69,8 @@ android {
     }
     dependencies {
         debugImplementation(compose.uiTooling)
+        implementation(libs.koin.core.v330)
+        implementation(libs.koin.android)
     }
 }
 
