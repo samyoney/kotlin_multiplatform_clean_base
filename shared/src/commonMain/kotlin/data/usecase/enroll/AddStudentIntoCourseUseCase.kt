@@ -2,7 +2,10 @@ package data.usecase.enroll
 
 import data.repository.StudentRepository
 import kotlinx.coroutines.flow.flow
-import org.sam.multiplatfrombase.StudentEntity
+import data.model.local.StudentEntity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
+import kotlinx.coroutines.flow.flowOn
 
 class AddStudentIntoCourseUseCase(private val studentRepository: StudentRepository) {
 
@@ -10,5 +13,5 @@ class AddStudentIntoCourseUseCase(private val studentRepository: StudentReposito
         val student = studentRepository.getStudent(id)
         val newStudent = StudentEntity(student.id, student.birth, student.name, courseId)
         emit(studentRepository.updateStudent(newStudent))
-    }
+    }.flowOn(Dispatchers.IO)
 }

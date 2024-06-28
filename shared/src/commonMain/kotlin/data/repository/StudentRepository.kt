@@ -1,7 +1,7 @@
 package data.repository
 
 import data.local.dao.StudentDao
-import org.sam.multiplatfrombase.StudentEntity
+import data.model.local.StudentEntity
 import data.remote.service.StudentService
 
 class StudentRepository(

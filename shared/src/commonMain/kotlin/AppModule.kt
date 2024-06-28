@@ -1,10 +1,7 @@
 import data.local.provideDao
-import data.local.provideDeviceStorage
-import data.local.provideDriver
 import data.local.provideSqlDelight
 import data.provideRepository
 import data.provideUseCase
-import data.remote.provideBaseURL
 import data.remote.provideHttpClient
 import data.remote.provideService
 import org.koin.core.context.startKoin
@@ -14,10 +11,8 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) =
     startKoin {
         appDeclaration()
         modules(
-            provideDriver,
+            providePlatform,
             provideSqlDelight,
-            provideDeviceStorage,
-            provideBaseURL,
             provideHttpClient,
             // メイン部分
             provideDao,
@@ -27,3 +22,4 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) =
         )
     }
 
+fun initKoin() = initKoin {}

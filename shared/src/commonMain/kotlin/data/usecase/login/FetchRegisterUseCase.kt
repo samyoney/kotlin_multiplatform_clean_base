@@ -1,7 +1,10 @@
 package data.usecase.login
 
 import data.repository.AccountRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 class FetchRegisterUseCase(private val repository: AccountRepository) {
 
@@ -13,5 +16,5 @@ class FetchRegisterUseCase(private val repository: AccountRepository) {
         birth: String
     ) = flow {
         emit(repository.register(username, password, courseId, name, birth))
-    }
+    }.flowOn(Dispatchers.IO)
 }

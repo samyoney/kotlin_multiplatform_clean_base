@@ -10,18 +10,19 @@ androidx-core-ktx = "1.13.1"
 androidx-espresso-core = "3.6.0"
 androidx-material = "1.12.0"
 androidx-test-junit = "1.2.0"
-compose-plugin = "1.6.10"
+compose-plugin = "1.6.11"
 junit = "4.13.2"
 koinAndroidExt = "2.0.1"
-koinCore = "3.3.0"
+koinCore = "3.5.3"
 kotlin = "2.0.0"
-ktor = "2.3.7"
-multiplatformSettings = "1.1.1"
+ktor = "2.3.11"
 sqlDelight = "2.0.1"
-coroutinesVersion = "1.8.0"
-dateTimeVersion = "0.4.1"
+coroutinesVersion = "1.8.1"
+dateTimeVersion = "0.6.0"
 koin = "3.5.3"
-
+dataStoreVersion = "1.1.1"
+atomicfu = "0.23.2"
+androidxLifecycle = "2.8.2"
 
 [libraries]
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
@@ -47,10 +48,13 @@ ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
-multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettings" }
 native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
 runtime = { module = "app.cash.sqldelight:runtime", version.ref = "sqlDelight" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+androidx-datastore-core-okio = { group = "androidx.datastore", name = "datastore-core-okio", version.ref = "dataStoreVersion" }
+androidx-datastore-preferences-core = { group = "androidx.datastore", name = "datastore-preferences-core", version.ref = "dataStoreVersion" }
+kotlinx-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version.ref = "atomicfu" }
+androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidxLifecycle" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

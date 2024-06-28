@@ -1,12 +1,16 @@
-import app.cash.sqldelight.db.SqlDriver
-import com.russhwolf.settings.Settings
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.PreferenceDataStoreFactory
+import androidx.datastore.preferences.core.Preferences
+import okio.Path.Companion.toPath
+import org.koin.core.module.Module
 
 interface Platform {
     val name: String
 }
 
-expect fun getPlatform(): Platform
+fun createDataStore(producePath: () -> String): DataStore<Preferences> =
+    PreferenceDataStoreFactory.createWithPath(
+        produceFile = { producePath().toPath() }
+    )
 
-expect fun getSettings(): Settings
-
-expect fun getDriver(): SqlDriver
+expect val providePlatform: Module

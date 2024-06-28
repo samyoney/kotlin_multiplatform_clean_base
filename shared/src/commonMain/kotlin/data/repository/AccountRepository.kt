@@ -4,13 +4,13 @@ import data.model.remote.request.LoginRequest
 import data.model.remote.request.RegisterRequest
 import data.remote.service.LoginService
 import data.remote.service.RegisterService
-import framework.pref.DeviceStorageManager
+import framework.pref.DataStoreManager
 
 
 class AccountRepository(
     private val loginService: LoginService,
     private val registerService: RegisterService,
-    private val deviceStorageManager: DeviceStorageManager,
+    private val dataStoreManager: DataStoreManager,
     ) {
 
     companion object {
@@ -26,17 +26,17 @@ class AccountRepository(
 
     var username: String
         get() {
-            return deviceStorageManager.read(USERNAME_KEY) ?: String()
+            return dataStoreManager.read(USERNAME_KEY) ?: String()
         }
         set(value) {
-            deviceStorageManager.write(USERNAME_KEY, value)
+            dataStoreManager.write(USERNAME_KEY, value)
         }
 
     var password: String
         get() {
-            return deviceStorageManager.read(PASSWORD_KEY) ?: String()
+            return dataStoreManager.read(PASSWORD_KEY) ?: String()
         }
         set(value) {
-            deviceStorageManager.write(PASSWORD_KEY, value)
+            dataStoreManager.write(PASSWORD_KEY, value)
         }
 }

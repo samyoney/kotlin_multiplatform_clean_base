@@ -1,11 +1,7 @@
 import android.content.Context
-import android.content.Context.MODE_PRIVATE
-import android.content.SharedPreferences
 import android.os.Build
-import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.android.AndroidSqliteDriver
-import com.russhwolf.settings.Settings
-import com.russhwolf.settings.SharedPreferencesSettings
+import org.koin.dsl.module
 import org.koin.mp.KoinPlatform.getKoin
 import org.sam.multiplatfrom_base.AppDatabase
 
@@ -13,16 +9,22 @@ class AndroidPlatform : Platform {
     override val name: String = "Android ${Build.VERSION.SDK_INT}"
 }
 
-actual fun getPlatform(): Platform = AndroidPlatform()
+actual val providePlatform = module {
+    single {
+        AndroidPlatform()
+        provideDriver
+    }
 
-actual fun getSettings(): Settings {
-    val context: Context = getKoin().get()
-    val name = context.packageName.toString() + "_pref"
-    val prefs: SharedPreferences = context.getSharedPreferences(name, MODE_PRIVATE)
-    return SharedPreferencesSettings(prefs)
 }
 
-actual fun getDriver(): SqlDriver {
+private val provideDataStore = {
     val context: Context = getKoin().get()
-    return AndroidSqliteDriver(AppDatabase.Schema, context, "enroll.db")
+    createDataStore(
+        producePath = { context.filesDir.resolve(context.packageName.toString() + "_pref").absolutePath }
+    )
+}
+
+private val provideDriver = {
+    val context: Context = getKoin().get()
+    AndroidSqliteDriver(AppDatabase.Schema, context, "enroll.db")
 }

@@ -1,7 +1,7 @@
 package data.repository
 
 import data.local.dao.CourseDao
-import org.sam.multiplatfrombase.CourseEntity
+import data.model.local.CourseEntity
 import data.remote.service.CourseService
 
 class CourseRepository(

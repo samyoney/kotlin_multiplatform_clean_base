@@ -15,13 +15,10 @@ import kotlinx.serialization.json.Json
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val provideBaseURL = module {
+val provideHttpClient = module {
     single(named("BaseURL")) {
         "https://us-central1-samyoney.cloudfunctions.net/api/"
     }
-}
-
-val provideHttpClient = module {
     single {
         HttpClient {
             install(ContentNegotiation) {
