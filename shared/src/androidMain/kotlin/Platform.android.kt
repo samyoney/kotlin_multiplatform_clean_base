@@ -1,5 +1,8 @@
 import android.content.Context
 import android.os.Build
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.android.AndroidSqliteDriver
 import org.koin.dsl.module
 import org.koin.mp.KoinPlatform.getKoin
@@ -9,22 +12,27 @@ class AndroidPlatform : Platform {
     override val name: String = "Android ${Build.VERSION.SDK_INT}"
 }
 
-actual val providePlatform = module {
-    single {
-        AndroidPlatform()
-        provideDriver
-    }
-
+actual fun providePlatform() = module {
+    single { AndroidPlatform() }
+    single { provideAppText() }
+    single { provideDataStore() }
+    single { provideDriver() }
+    single<AppDatabase> { AppDatabase(get()) }
 }
 
-private val provideDataStore = {
+private fun provideAppText(): AppText {
     val context: Context = getKoin().get()
-    createDataStore(
-        producePath = { context.filesDir.resolve(context.packageName.toString() + "_pref").absolutePath }
+    return AndroidResource(context)
+}
+
+private fun provideDataStore(): DataStore<Preferences> {
+    val context: Context = getKoin().get()
+    return createDataStore(
+        producePath = { context.filesDir.resolve("${context.packageName}_pref.preferences_pb").absolutePath }
     )
 }
 
-private val provideDriver = {
+private fun provideDriver(): SqlDriver {
     val context: Context = getKoin().get()
-    AndroidSqliteDriver(AppDatabase.Schema, context, "enroll.db")
+    return AndroidSqliteDriver(AppDatabase.Schema, context, "enroll.db")
 }

@@ -1,12 +1,12 @@
 package data.usecase.enroll
 
-import data.model.local.StudentEntity
 import data.model.remote.response.StudentResponse
 import data.repository.StudentRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import org.sam.multiplatfrombase.StudentEntity
 
 
 class SaveStudentsUseCase(private val studentRepository: StudentRepository) {

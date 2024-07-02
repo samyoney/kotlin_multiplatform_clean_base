@@ -39,6 +39,8 @@ kotlin {
             implementation(libs.runtime)
             implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.composeVM)
             implementation(libs.kotlinx.atomicfu)
             api(libs.androidx.datastore.preferences.core)
             api(libs.androidx.datastore.core.okio)

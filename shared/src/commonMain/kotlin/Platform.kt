@@ -13,4 +13,4 @@ fun createDataStore(producePath: () -> String): DataStore<Preferences> =
         produceFile = { producePath().toPath() }
     )
 
-expect val providePlatform: Module
+expect fun providePlatform(): Module

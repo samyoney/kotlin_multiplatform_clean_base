@@ -10,21 +10,25 @@ import platform.UIKit.UIDevice
 
 internal const val dataStoreFileName = "sam.preferences_pb"
 
-class IOSPlatform: Platform {
-    override val name: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
+class IOSPlatform : Platform {
+    override val name: String =
+        UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
 }
 
-actual val providePlatform = module {
-    single {
-        IOSPlatform()
-        provideDataStore
-        provideDriver
-    }
+actual fun providePlatform() = module {
+    single { IOSPlatform() }
+    single { provideAppText() }
+    single { provideDataStore() }
+    single { provideDriver() }
+    single<AppDatabase> { AppDatabase(get()) }
+}
 
+private fun provideAppText(): AppText {
+    return NSBundleResource()
 }
 
 @OptIn(ExperimentalForeignApi::class)
-private val provideDataStore = createDataStore(
+private fun provideDataStore() = createDataStore(
     producePath = {
         val documentDirectory: NSURL? = NSFileManager.defaultManager.URLForDirectory(
             directory = NSDocumentDirectory,
@@ -37,6 +41,4 @@ private val provideDataStore = createDataStore(
     }
 )
 
-private val provideDriver = {
-     NativeSqliteDriver(AppDatabase.Schema, "enroll.db")
-}
+private fun provideDriver() = NativeSqliteDriver(AppDatabase.Schema, "enroll.db")

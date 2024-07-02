@@ -5,13 +5,13 @@ import data.usecase.enroll.*
 import data.usecase.login.*
 import org.koin.dsl.module
 
-val provideRepository = module {
+fun provideRepository() = module {
     factory { AccountRepository(get(), get(), get()) }
     factory { CourseRepository(get(), get()) }
     factory { StudentRepository(get(), get()) }
 }
 
-val provideUseCase = module {
+fun provideUseCase() = module {
     factory { AddStudentIntoCourseUseCase(get()) }
     factory { CheckDataInitializedUseCase(get()) }
     factory { FetchCoursesUseCase(get()) }

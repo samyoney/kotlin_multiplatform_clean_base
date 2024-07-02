@@ -1,0 +1,27 @@
+interface AppText {
+    fun appName(): String
+    fun validationFailText(): String
+    fun username(): String
+    fun password(): String
+    fun name(): String
+    fun birthday(): String
+    fun placeHolder(): String
+    fun description(): String
+    fun birthdayPlaceHolder(): String
+    fun birthdayDescription(): String
+    fun ok(): String
+    fun cancel(): String
+    fun goToRegister(): String
+    fun backToLogin(): String
+    fun login(): String
+    fun register(): String
+    fun loginNavTab(): String
+    fun registerNavTab(): String
+    fun courseNavTab(): String
+    fun studentNavTab(): String
+    fun errorApiMessage(): String
+    fun totalStudentsTitle(): String
+    fun enrolledStudent(): String
+    fun registerCourse(): String
+    fun removeStudent(): String
+}

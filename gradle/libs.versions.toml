@@ -1,30 +1,40 @@
 [versions]
+accompanistSystemuicontroller = "0.23.1"
 agp = "8.2.2"
 android-compileSdk = "34"
-android-minSdk = "24"
+android-minSdk = "26"
 android-targetSdk = "34"
 androidx-activityCompose = "1.9.0"
 androidx-appcompat = "1.7.0"
 androidx-constraintlayout = "2.1.4"
 androidx-core-ktx = "1.13.1"
-androidx-espresso-core = "3.6.0"
+androidx-espresso-core = "3.6.1"
 androidx-material = "1.12.0"
-androidx-test-junit = "1.2.0"
+androidx-test-junit = "1.2.1"
+animationsCore = "1.9.54"
 compose-plugin = "1.6.11"
+core = "1.9.54"
 junit = "4.13.2"
 koinAndroidExt = "2.0.1"
 koinCore = "3.5.3"
+koinComposeMultiplatform = "1.2.0-Beta4"
 kotlin = "2.0.0"
 ktor = "2.3.11"
+navigationCompose = "2.7.7"
 sqlDelight = "2.0.1"
 coroutinesVersion = "1.8.1"
 dateTimeVersion = "0.6.0"
 koin = "3.5.3"
 dataStoreVersion = "1.1.1"
 atomicfu = "0.23.2"
-androidxLifecycle = "2.8.2"
+androidxLifecycle = "2.8.3"
+koinCompose = "3.6.0-Beta4"
+uiTextAndroid = "1.6.8"
 
 [libraries]
+accompanist-insets = { module = "com.google.accompanist:accompanist-insets", version.ref = "accompanistSystemuicontroller" }
+accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanistSystemuicontroller" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-android-ext = { module = "org.koin:koin-android-ext", version.ref = "koinAndroidExt" }
 koin-core-v330 = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
@@ -51,10 +61,14 @@ ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx
 native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
 runtime = { module = "app.cash.sqldelight:runtime", version.ref = "sqlDelight" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinCompose" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koinComposeMultiplatform" }
+koin-composeVM = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koinComposeMultiplatform" }
 androidx-datastore-core-okio = { group = "androidx.datastore", name = "datastore-core-okio", version.ref = "dataStoreVersion" }
 androidx-datastore-preferences-core = { group = "androidx.datastore", name = "datastore-preferences-core", version.ref = "dataStoreVersion" }
 kotlinx-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version.ref = "atomicfu" }
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidxLifecycle" }
+androidx-ui-text-android = { group = "androidx.compose.ui", name = "ui-text-android", version.ref = "uiTextAndroid" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

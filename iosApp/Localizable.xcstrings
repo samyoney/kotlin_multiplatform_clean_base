@@ -1,0 +1,106 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "app_name": {
+      "extractionState": "manual",
+      "value": "KotlinMultiplatformBase"
+    },
+    "validation_fail_text": {
+      "extractionState": "manual",
+      "value": "Input is invalid"
+    },
+    "username": {
+      "extractionState": "manual",
+      "value": "Username"
+    },
+    "password": {
+      "extractionState": "manual",
+      "value": "Password"
+    },
+    "name": {
+      "extractionState": "manual",
+      "value": "Nickname"
+    },
+    "birthday": {
+      "extractionState": "manual",
+      "value": "Birthday"
+    },
+    "place_holder": {
+      "extractionState": "manual",
+      "value": "SAMPLE"
+    },
+    "description": {
+      "extractionState": "manual",
+      "value": "Input Something"
+    },
+    "birthday_place_holder": {
+      "extractionState": "manual",
+      "value": "19940414"
+    },
+    "birthday_description": {
+      "extractionState": "manual",
+      "value": "Enter your date of birth in 6 digits"
+    },
+    "ok": {
+      "extractionState": "manual",
+      "value": "OK"
+    },
+    "cancel": {
+      "extractionState": "manual",
+      "value": "Cancel"
+    },
+    "go_to_register": {
+      "extractionState": "manual",
+      "value": "Go To Register"
+    },
+    "back_to_login": {
+      "extractionState": "manual",
+      "value": "Back To Login"
+    },
+    "login": {
+      "extractionState": "manual",
+      "value": "Login"
+    },
+    "register": {
+      "extractionState": "manual",
+      "value": "Register"
+    },
+    "login_nav_tab": {
+      "extractionState": "manual",
+      "value": "Login"
+    },
+    "register_nav_tab": {
+      "extractionState": "manual",
+      "value": "Register"
+    },
+    "course_nav_tab": {
+      "extractionState": "manual",
+      "value": "Course"
+    },
+    "student_nav_tab": {
+      "extractionState": "manual",
+      "value": "Student"
+    },
+    "error_api_message": {
+      "extractionState": "manual",
+      "value": "Api Error"
+    },
+    "total_students_title": {
+      "extractionState": "manual",
+      "value": "Total Students"
+    },
+    "enrolled_student": {
+      "extractionState": "manual",
+      "value": "Enrolled Students"
+    },
+    "register_course": {
+      "extractionState": "manual",
+      "value": "Register Code"
+    },
+    "remove_student": {
+      "extractionState": "manual",
+      "value": "Remove"
+    }
+  },
+  "version": "1.0"
+}

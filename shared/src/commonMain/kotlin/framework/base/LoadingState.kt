@@ -6,3 +6,5 @@ sealed interface LoadingState<out T> {
     data class Loaded<T>(var data: T? = null) : LoadingState<T>
     data class Error(val mess: String = String()) : LoadingState<Nothing>
 }
+
+

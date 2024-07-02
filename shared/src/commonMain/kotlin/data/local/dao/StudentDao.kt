@@ -1,9 +1,8 @@
 package data.local.dao
 
-import data.model.dto.toEntity
-import data.model.local.StudentEntity
 import framework.network.safeQuery
 import org.sam.multiplatfrom_base.AppDatabase
+import org.sam.multiplatfrombase.StudentEntity
 
 class StudentDao(private val database: AppDatabase) {
 
@@ -12,9 +11,7 @@ class StudentDao(private val database: AppDatabase) {
     }
 
     suspend fun getListStudent() = safeQuery {
-        return@safeQuery database.appDatabaseQueries.getStudents().executeAsList().map {
-            it.toEntity()
-        }
+        return@safeQuery database.appDatabaseQueries.getStudents().executeAsList()
     }
 
     suspend fun updateStudent(studentEntity: StudentEntity) = safeQuery {
@@ -37,8 +34,6 @@ class StudentDao(private val database: AppDatabase) {
     }
 
     suspend fun getStudentByCourseId(courseId: String): List<StudentEntity> = safeQuery {
-        return@safeQuery database.appDatabaseQueries.getStudentsByCourseId(courseId).executeAsList().map {
-            it.toEntity()
-        }
+        return@safeQuery database.appDatabaseQueries.getStudentsByCourseId(courseId).executeAsList()
     }
 }

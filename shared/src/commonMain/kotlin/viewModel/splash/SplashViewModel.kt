@@ -8,7 +8,6 @@ import data.usecase.login.CheckLoggedInUseCase
 import data.usecase.login.FetchAutoLoginUseCase
 import framework.base.BaseLoadingViewModel
 import framework.base.LoadingState
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.update
 import org.koin.core.component.inject
 
@@ -74,6 +73,5 @@ class SplashViewModel : BaseLoadingViewModel<SplashState, SplashEvent>() {
     }
 
     private fun onNextScreen() = safeLaunch {
-        delay(2000)
-        uiState.updateLoaded { it.copy(isNextScreen = true) }
+        uiState.updateLoaded { it.copy(isNextLogin = !checkLoggedInUseCase()) }
     }}

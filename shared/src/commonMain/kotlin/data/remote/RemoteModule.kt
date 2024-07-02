@@ -15,7 +15,7 @@ import kotlinx.serialization.json.Json
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val provideHttpClient = module {
+fun provideHttpClient() = module {
     single(named("BaseURL")) {
         "https://us-central1-samyoney.cloudfunctions.net/api/"
     }
@@ -39,7 +39,7 @@ val provideHttpClient = module {
     }
 }
 
-val provideService = module {
+fun provideService() = module {
     factory { CourseService(get(named("BaseURL")), get()) }
     factory { LoginService(get(named("BaseURL")), get()) }
     factory { RegisterService(get(named("BaseURL")), get()) }

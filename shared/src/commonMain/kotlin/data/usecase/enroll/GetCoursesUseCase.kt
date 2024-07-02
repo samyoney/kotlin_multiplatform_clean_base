@@ -1,7 +1,6 @@
 package data.usecase.enroll
 
 import data.model.dto.toDto
-import data.model.dto.toEntity
 import data.repository.CourseRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -12,7 +11,7 @@ class GetCoursesUseCase(private val courseRepository: CourseRepository) {
 
     operator fun invoke() = flow {
         emit(courseRepository.getListCourse().map {
-            it.toEntity().toDto()
+            it.toDto()
         })
     }.flowOn(Dispatchers.IO)
 }
