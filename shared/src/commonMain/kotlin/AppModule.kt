@@ -39,9 +39,8 @@ private fun provideViewModel() = module {
     viewModel { LoginViewModel() }
     viewModel { SamViewModel() }
 }
-
 // iOSの部分
-fun KoinApplication.Companion.initKoin(): KoinApplication = initKoin {}
+fun KoinApplication.Companion.createKoinInstance(): KoinApplication = initKoin {}
 val Koin.splashViewModel: SplashViewModel get() = get()
 val Koin.loginViewModel: LoginViewModel get() = get()
 val Koin.samViewModel: SamViewModel get() = get()

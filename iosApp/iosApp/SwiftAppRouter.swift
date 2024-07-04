@@ -37,9 +37,9 @@ class SwiftAppRouter: ObservableObject {
         case .splash:
             SplashView()
         case .login:
-            EmptyView()
+            LoginView()
         case .sam:
-            EmptyView()
+            SamView()
         }
     }
     
@@ -48,9 +48,9 @@ class SwiftAppRouter: ObservableObject {
         case .splash:
             SplashView()
         case .login:
-            EmptyView()
+            LoginView()
         case .sam:
-            EmptyView()
+            SamView()
         }
     }
 

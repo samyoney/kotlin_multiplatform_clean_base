@@ -11,15 +11,28 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* SwiftAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* SwiftAppView.swift */; };
+		DEAA03522C36A28E0068928C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAA03512C36A28E0068928C /* SplashView.swift */; };
+		DEAA03552C36A4BD0068928C /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = DEAA03542C36A4BD0068928C /* RswiftLibrary */; };
+		DEAA03572C36A4BD0068928C /* rswift in Frameworks */ = {isa = PBXBuildFile; productRef = DEAA03562C36A4BD0068928C /* rswift */; };
 		DEE00B6F2C34DEB000C8048F /* Koin+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B6E2C34DEB000C8048F /* Koin+Extension.swift */; };
 		DEE00B712C34E86B00C8048F /* SwiftAppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B702C34E86B00C8048F /* SwiftAppRouter.swift */; };
-		DEE00B742C34E8E000C8048F /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B732C34E8E000C8048F /* SplashView.swift */; };
 		DEE00B772C34EB0300C8048F /* Loading+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B762C34EB0300C8048F /* Loading+Extension.swift */; };
 		DEE00B7B2C34ECF600C8048F /* ErrorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B7A2C34ECF600C8048F /* ErrorDialog.swift */; };
 		DEE00B7E2C34EF8C00C8048F /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B7C2C34EF8C00C8048F /* Spacer.swift */; };
 		DEE00B7F2C34EF8C00C8048F /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B7D2C34EF8C00C8048F /* ProgressIndicator.swift */; };
 		DEE00B832C351EF600C8048F /* SharedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B822C351EF600C8048F /* SharedViewModel.swift */; };
 		DEE00B852C35351600C8048F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = DEE00B842C35351600C8048F /* Localizable.xcstrings */; };
+		DEEB6B372C36342D008B6587 /* SharedSplashVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB6B362C36342D008B6587 /* SharedSplashVM.swift */; };
+		DEEB6B392C36366F008B6587 /* SwiftLoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB6B382C36366F008B6587 /* SwiftLoadingState.swift */; };
+		DEEB6B3D2C36398A008B6587 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB6B3C2C36398A008B6587 /* LoginView.swift */; };
+		DEEB6B3F2C363996008B6587 /* SharedLoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB6B3E2C363996008B6587 /* SharedLoginVM.swift */; };
+		DEEB6B412C3639A0008B6587 /* SamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB6B402C3639A0008B6587 /* SamView.swift */; };
+		DEEB6B432C3639AC008B6587 /* SharedSamVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB6B422C3639AC008B6587 /* SharedSamVM.swift */; };
+		DEEB6B5D2C363C42008B6587 /* CourseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB6B5A2C363C42008B6587 /* CourseListView.swift */; };
+		DEEB6B5E2C363C42008B6587 /* StudentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB6B5B2C363C42008B6587 /* StudentListView.swift */; };
+		DEEB6B632C363D60008B6587 /* LoginBirthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB6B5F2C363D60008B6587 /* LoginBirthButton.swift */; };
+		DEEB6B642C363D60008B6587 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB6B602C363D60008B6587 /* LoginButton.swift */; };
+		DEEB6B652C363D60008B6587 /* LoginInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB6B612C363D60008B6587 /* LoginInputField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,15 +43,26 @@
 		7555FF82242A565900829871 /* SwiftAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAppView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB3632DC29227652001CCB65 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		DEAA03512C36A28E0068928C /* SplashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashView.swift; path = ../../SplashView.swift; sourceTree = "<group>"; };
 		DEE00B6E2C34DEB000C8048F /* Koin+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Koin+Extension.swift"; sourceTree = "<group>"; };
 		DEE00B702C34E86B00C8048F /* SwiftAppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAppRouter.swift; sourceTree = "<group>"; };
-		DEE00B732C34E8E000C8048F /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		DEE00B762C34EB0300C8048F /* Loading+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Loading+Extension.swift"; sourceTree = "<group>"; };
 		DEE00B7A2C34ECF600C8048F /* ErrorDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorDialog.swift; sourceTree = "<group>"; };
 		DEE00B7C2C34EF8C00C8048F /* Spacer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
 		DEE00B7D2C34EF8C00C8048F /* ProgressIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
 		DEE00B822C351EF600C8048F /* SharedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViewModel.swift; sourceTree = "<group>"; };
 		DEE00B842C35351600C8048F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		DEEB6B362C36342D008B6587 /* SharedSplashVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSplashVM.swift; sourceTree = "<group>"; };
+		DEEB6B382C36366F008B6587 /* SwiftLoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLoadingState.swift; sourceTree = "<group>"; };
+		DEEB6B3C2C36398A008B6587 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DEEB6B3E2C363996008B6587 /* SharedLoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLoginVM.swift; sourceTree = "<group>"; };
+		DEEB6B402C3639A0008B6587 /* SamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamView.swift; sourceTree = "<group>"; };
+		DEEB6B422C3639AC008B6587 /* SharedSamVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSamVM.swift; sourceTree = "<group>"; };
+		DEEB6B5A2C363C42008B6587 /* CourseListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseListView.swift; sourceTree = "<group>"; };
+		DEEB6B5B2C363C42008B6587 /* StudentListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentListView.swift; sourceTree = "<group>"; };
+		DEEB6B5F2C363D60008B6587 /* LoginBirthButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginBirthButton.swift; sourceTree = "<group>"; };
+		DEEB6B602C363D60008B6587 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		DEEB6B612C363D60008B6587 /* LoginInputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInputField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEAA03552C36A4BD0068928C /* RswiftLibrary in Frameworks */,
+				DEAA03572C36A4BD0068928C /* rswift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +115,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				DEE00B782C34ECDE00C8048F /* App */,
+				DEE00B782C34ECDE00C8048F /* Framework */,
 				DEE00B722C34E8C200C8048F /* Presentation */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
@@ -112,7 +138,9 @@
 		DEE00B722C34E8C200C8048F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				DEE00B732C34E8E000C8048F /* SplashView.swift */,
+				DEEB6B352C363404008B6587 /* Splash */,
+				DEEB6B3A2C36396B008B6587 /* Login */,
+				DEEB6B3B2C363973008B6587 /* Sam */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -126,14 +154,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		DEE00B782C34ECDE00C8048F /* App */ = {
+		DEE00B782C34ECDE00C8048F /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				DEE00B862C35461000C8048F /* Base */,
+				DEE00B862C35461000C8048F /* VM */,
 				DEE00B792C34ECE500C8048F /* Component */,
 				DEE00B752C34EAF300C8048F /* Extension */,
 			);
-			path = App;
+			path = Framework;
 			sourceTree = "<group>";
 		};
 		DEE00B792C34ECE500C8048F /* Component */ = {
@@ -146,12 +174,62 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		DEE00B862C35461000C8048F /* Base */ = {
+		DEE00B862C35461000C8048F /* VM */ = {
 			isa = PBXGroup;
 			children = (
 				DEE00B822C351EF600C8048F /* SharedViewModel.swift */,
+				DEEB6B382C36366F008B6587 /* SwiftLoadingState.swift */,
 			);
-			path = Base;
+			path = VM;
+			sourceTree = "<group>";
+		};
+		DEEB6B352C363404008B6587 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				DEAA03512C36A28E0068928C /* SplashView.swift */,
+				DEEB6B362C36342D008B6587 /* SharedSplashVM.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		DEEB6B3A2C36396B008B6587 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DEEB6B622C363D60008B6587 /* View */,
+				DEEB6B3C2C36398A008B6587 /* LoginView.swift */,
+				DEEB6B3E2C363996008B6587 /* SharedLoginVM.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DEEB6B3B2C363973008B6587 /* Sam */ = {
+			isa = PBXGroup;
+			children = (
+				DEEB6B5C2C363C42008B6587 /* View */,
+				DEEB6B402C3639A0008B6587 /* SamView.swift */,
+				DEEB6B422C3639AC008B6587 /* SharedSamVM.swift */,
+			);
+			path = Sam;
+			sourceTree = "<group>";
+		};
+		DEEB6B5C2C363C42008B6587 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEEB6B5A2C363C42008B6587 /* CourseListView.swift */,
+				DEEB6B5B2C363C42008B6587 /* StudentListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DEEB6B622C363D60008B6587 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEEB6B5F2C363D60008B6587 /* LoginBirthButton.swift */,
+				DEEB6B602C363D60008B6587 /* LoginButton.swift */,
+				DEEB6B612C363D60008B6587 /* LoginInputField.swift */,
+			);
+			name = View;
+			path = ../../../../../SwiftCleanBase/SwiftCleanBase/Presentation/Login/View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,9 +248,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				DEAA03592C36A4CB0068928C /* PBXTargetDependency */,
 			);
 			name = iosApp;
 			packageProductDependencies = (
+				DEAA03542C36A4BD0068928C /* RswiftLibrary */,
+				DEAA03562C36A4BD0068928C /* rswift */,
 			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* KotlinMultiplatformBase.app */;
@@ -204,6 +285,7 @@
 			);
 			mainGroup = 7555FF72242A565900829871;
 			packageReferences = (
+				DEAA03532C36A4BD0068928C /* XCRemoteSwiftPackageReference "R" */,
 			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
@@ -273,17 +355,35 @@
 				DEE00B712C34E86B00C8048F /* SwiftAppRouter.swift in Sources */,
 				DEE00B7F2C34EF8C00C8048F /* ProgressIndicator.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				DEEB6B632C363D60008B6587 /* LoginBirthButton.swift in Sources */,
 				DEE00B772C34EB0300C8048F /* Loading+Extension.swift in Sources */,
-				DEE00B742C34E8E000C8048F /* SplashView.swift in Sources */,
+				DEEB6B642C363D60008B6587 /* LoginButton.swift in Sources */,
+				DEEB6B412C3639A0008B6587 /* SamView.swift in Sources */,
+				DEEB6B5D2C363C42008B6587 /* CourseListView.swift in Sources */,
 				DEE00B6F2C34DEB000C8048F /* Koin+Extension.swift in Sources */,
+				DEEB6B5E2C363C42008B6587 /* StudentListView.swift in Sources */,
+				DEEB6B432C3639AC008B6587 /* SharedSamVM.swift in Sources */,
+				DEAA03522C36A28E0068928C /* SplashView.swift in Sources */,
+				DEEB6B392C36366F008B6587 /* SwiftLoadingState.swift in Sources */,
 				DEE00B7E2C34EF8C00C8048F /* Spacer.swift in Sources */,
+				DEEB6B372C36342D008B6587 /* SharedSplashVM.swift in Sources */,
 				7555FF83242A565900829871 /* SwiftAppView.swift in Sources */,
+				DEEB6B3D2C36398A008B6587 /* LoginView.swift in Sources */,
+				DEEB6B3F2C363996008B6587 /* SharedLoginVM.swift in Sources */,
+				DEEB6B652C363D60008B6587 /* LoginInputField.swift in Sources */,
 				DEE00B832C351EF600C8048F /* SharedViewModel.swift in Sources */,
 				DEE00B7B2C34ECF600C8048F /* ErrorDialog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DEAA03592C36A4CB0068928C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = DEAA03582C36A4CB0068928C /* RswiftGenerateInternalResources */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		7555FFA3242A565B00829871 /* Debug */ = {
@@ -420,7 +520,7 @@
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
 				INFOPLIST_FILE = iosApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -448,7 +548,7 @@
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
 				INFOPLIST_FILE = iosApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,6 +584,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DEAA03532C36A4BD0068928C /* XCRemoteSwiftPackageReference "R" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DEAA03542C36A4BD0068928C /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEAA03532C36A4BD0068928C /* XCRemoteSwiftPackageReference "R" */;
+			productName = RswiftLibrary;
+		};
+		DEAA03562C36A4BD0068928C /* rswift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEAA03532C36A4BD0068928C /* XCRemoteSwiftPackageReference "R" */;
+			productName = rswift;
+		};
+		DEAA03582C36A4CB0068928C /* RswiftGenerateInternalResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEAA03532C36A4BD0068928C /* XCRemoteSwiftPackageReference "R" */;
+			productName = "plugin:RswiftGenerateInternalResources";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7555FF73242A565900829871 /* Project object */;
 }

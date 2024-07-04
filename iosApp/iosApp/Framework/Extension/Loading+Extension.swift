@@ -13,20 +13,20 @@ import Shared
 extension View {
     
     func observeLoadingState<T>(
-        _ loadingState: Binding<LoadingState>,
-        onLoaded: @escaping (AnyObject?) -> Void = { _ in }
+        _ loadingState: Binding<SwiftLoadingState<T>>,
+        onLoaded: @escaping (T?) -> Void = { _ in }
     ) -> some View {
         self.onError(loadingState, String())
             .onLoading(loadingState)
             .onLoaded(loadingState.wrappedValue, onNext: onLoaded)
     }
     
-    func onError(_ loadingState: Binding<LoadingState>, _ title: String = String()) -> some View {
+    func onError<T>(_ loadingState: Binding<SwiftLoadingState<T>>, _ title: String = String()) -> some View {
         var errorMsg = appText.errorApiMessage()
         let isPresented = Binding<Bool>(
             get: {
-                if let errorState = loadingState.wrappedValue as? LoadingStateError {
-                    errorMsg = errorState.mess
+                if case .error(let msg) = loadingState.wrappedValue {
+                    errorMsg = msg
                     return true
                 } else {
                     return false
@@ -34,20 +34,20 @@ extension View {
             },
             set: { newValue in
                 if !newValue {
-                    loadingState.wrappedValue = LoadingStateIdle()
+                    loadingState.wrappedValue = .idle
                 }
             }
         )
         return self.modifier(ErroDialogModifier(isPresented: isPresented, title: title, message: errorMsg, buttonTitle: appText.ok(), buttonAction: {
-            loadingState.wrappedValue = LoadingStateIdle()
+            loadingState.wrappedValue = .idle
         }))
     }
     
     
-    func onLoading(_ loadingState: Binding<LoadingState>) -> some View {
+    func onLoading<T>(_ loadingState: Binding<SwiftLoadingState<T>>) -> some View {
         let isPresented = Binding<Bool>(
             get: {
-                if let loadingState = loadingState.wrappedValue as? LoadingStateLoading {
+                if case .loading = loadingState.wrappedValue {
                     return true
                 } else {
                     return false
@@ -59,12 +59,12 @@ extension View {
         return self.modifier(ProgressIndicatorModifier(isPresented: isPresented))
     }
     
-    func onLoaded(_ loadingState: LoadingState?, onNext: @escaping (AnyObject?) -> Void) -> some View {
-        if let loadingState = loadingState as? LoadingStateLoaded<AnyObject> {
-            if let data = loadingState.data {
-                onNext(data)
+    func onLoaded<T>(_ loadingState: SwiftLoadingState<T>, onNext: @escaping (T?) -> Void) -> some View {
+        self.onChange(of: loadingState) {
+            switch loadingState {
+            case .loaded(let data): onNext(data)
+            default: break
             }
         }
-        return EmptyView()
     }
 }

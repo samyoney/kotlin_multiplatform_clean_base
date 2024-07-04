@@ -34,6 +34,12 @@ abstract class BaseViewModel<ViewState, ViewEvent> : ViewModel(), KoinComponent 
         viewModelScope.launch(handler, block = block)
     }
 
+    open fun notifyUIPublisher(onValueChange: (ViewState) -> Unit) = safeLaunch {
+        uiState.collect { value ->
+            onValueChange(value)
+        }
+    }
+
     protected suspend fun <T> executeLocalUseCase(
         callFlow: Flow<T>,
         completionHandler: (collect: T) -> Unit = {}
@@ -44,6 +50,7 @@ abstract class BaseViewModel<ViewState, ViewEvent> : ViewModel(), KoinComponent 
                 completionHandler.invoke(it)
             }
     }
+
 
     protected suspend fun <T> executeRemoteUseCase(
         callFlow: Flow<RequestState<T>>,

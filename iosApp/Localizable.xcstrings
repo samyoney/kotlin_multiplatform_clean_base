@@ -1,106 +1,103 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "app_name": {
-      "extractionState": "manual",
-      "value": "KotlinMultiplatformBase"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "- %@" : {
+
     },
-    "validation_fail_text": {
-      "extractionState": "manual",
-      "value": "Input is invalid"
+    "%@" : {
+
     },
-    "username": {
-      "extractionState": "manual",
-      "value": "Username"
+    "%@ (%@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ (%2$@)"
+          }
+        }
+      }
     },
-    "password": {
-      "extractionState": "manual",
-      "value": "Password"
+    "app_name" : {
+      "extractionState" : "manual"
     },
-    "name": {
-      "extractionState": "manual",
-      "value": "Nickname"
+    "back_to_login" : {
+      "extractionState" : "manual"
     },
-    "birthday": {
-      "extractionState": "manual",
-      "value": "Birthday"
+    "birthday" : {
+      "extractionState" : "manual"
     },
-    "place_holder": {
-      "extractionState": "manual",
-      "value": "SAMPLE"
+    "birthday_description" : {
+      "extractionState" : "manual"
     },
-    "description": {
-      "extractionState": "manual",
-      "value": "Input Something"
+    "birthday_place_holder" : {
+      "extractionState" : "manual"
     },
-    "birthday_place_holder": {
-      "extractionState": "manual",
-      "value": "19940414"
+    "cancel" : {
+      "extractionState" : "manual"
     },
-    "birthday_description": {
-      "extractionState": "manual",
-      "value": "Enter your date of birth in 6 digits"
+    "course_nav_tab" : {
+      "extractionState" : "manual"
     },
-    "ok": {
-      "extractionState": "manual",
-      "value": "OK"
+    "description" : {
+      "extractionState" : "manual"
     },
-    "cancel": {
-      "extractionState": "manual",
-      "value": "Cancel"
+    "enrolled_student" : {
+      "extractionState" : "manual"
     },
-    "go_to_register": {
-      "extractionState": "manual",
-      "value": "Go To Register"
+    "error_api_message" : {
+      "extractionState" : "manual"
     },
-    "back_to_login": {
-      "extractionState": "manual",
-      "value": "Back To Login"
+    "go_to_register" : {
+      "extractionState" : "manual"
     },
-    "login": {
-      "extractionState": "manual",
-      "value": "Login"
+    "Instructor: %@" : {
+
     },
-    "register": {
-      "extractionState": "manual",
-      "value": "Register"
+    "login" : {
+      "extractionState" : "manual"
     },
-    "login_nav_tab": {
-      "extractionState": "manual",
-      "value": "Login"
+    "login_nav_tab" : {
+      "extractionState" : "manual"
     },
-    "register_nav_tab": {
-      "extractionState": "manual",
-      "value": "Register"
+    "name" : {
+      "extractionState" : "manual"
     },
-    "course_nav_tab": {
-      "extractionState": "manual",
-      "value": "Course"
+    "ok" : {
+      "extractionState" : "manual"
     },
-    "student_nav_tab": {
-      "extractionState": "manual",
-      "value": "Student"
+    "password" : {
+      "extractionState" : "manual"
     },
-    "error_api_message": {
-      "extractionState": "manual",
-      "value": "Api Error"
+    "place_holder" : {
+      "extractionState" : "manual"
     },
-    "total_students_title": {
-      "extractionState": "manual",
-      "value": "Total Students"
+    "register" : {
+      "extractionState" : "manual"
     },
-    "enrolled_student": {
-      "extractionState": "manual",
-      "value": "Enrolled Students"
+    "register_course" : {
+      "extractionState" : "manual"
     },
-    "register_course": {
-      "extractionState": "manual",
-      "value": "Register Code"
+    "register_nav_tab" : {
+      "extractionState" : "manual"
     },
-    "remove_student": {
-      "extractionState": "manual",
-      "value": "Remove"
+    "remove_student" : {
+      "extractionState" : "manual"
+    },
+    "student_nav_tab" : {
+      "extractionState" : "manual"
+    },
+    "Topics:" : {
+
+    },
+    "total_students_title" : {
+      "extractionState" : "manual"
+    },
+    "username" : {
+      "extractionState" : "manual"
+    },
+    "validation_fail_text" : {
+      "extractionState" : "manual"
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }

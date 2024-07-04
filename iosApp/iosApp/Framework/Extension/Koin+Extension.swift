@@ -13,8 +13,6 @@ import SwiftUI
 public typealias KoinApplication = Koin_coreKoinApplication
 public typealias Koin = Koin_coreKoin
 
-extension BaseViewModel: ObservableObject { }
-
 extension Array where Element: AnyObject {
     public init(_ kotlin: KotlinArray<Element>) {
         self = (0..<kotlin.size).map { kotlin.get(index: $0)! }
@@ -42,7 +40,8 @@ extension KotlinCaseIterable {
 }
 
 extension KoinApplication {
-    public static let shared = companion.doInitKoin()
+    
+    public static let shared = companion.createKoinInstance()
     
     @discardableResult
     public static func start() -> KoinApplication {
