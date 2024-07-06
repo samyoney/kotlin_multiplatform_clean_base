@@ -19,8 +19,7 @@ actual fun providePlatform() = module {
     single { IOSPlatform() }
     single { provideAppText() }
     single { provideDataStore() }
-    single { provideDriver() }
-    single<AppDatabase> { AppDatabase(get()) }
+    single<AppDatabase> { AppDatabase(NativeSqliteDriver(AppDatabase.Schema, "enroll.db")) }
 }
 
 private fun provideAppText(): AppText {
@@ -40,5 +39,3 @@ private fun provideDataStore() = createDataStore(
         requireNotNull(documentDirectory).path + "/$dataStoreFileName"
     }
 )
-
-private fun provideDriver() = NativeSqliteDriver(AppDatabase.Schema, "enroll.db")

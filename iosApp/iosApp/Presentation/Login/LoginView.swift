@@ -27,15 +27,36 @@ struct LoginView: View {
             VStack {
                 if viewModel.isRegisterScreen {
                     RegisterContentView(username: $viewModel.username, password: $viewModel.password, name: $viewModel.name, birth: $viewModel.birth, registerAction: {
-                        viewModel.shared.onTriggerEvent(eventType: .Register())
+                        viewModel.shared.onPublisherTriggerEvent(updateStateIfNeed: { state in
+                            if let state = state {
+                                state.username = viewModel.username
+                                state.username = viewModel.username
+                                state.name = viewModel.name
+                                state.birth = viewModel.birth
+                                return state
+                            }
+                            return state
+                            
+                        }, eventType: .Login())
+
+                        viewModel.shared.onPublisherTriggerEvent(eventType: .Register())
                     }, backToLoginAction: {
-                        viewModel.shared.onTriggerEvent(eventType: .ChangeLoginMode())
+                        viewModel.shared.onPublisherTriggerEvent(eventType: .ChangeLoginMode())
                     })
                 } else {
                     LoginContentView(username: $viewModel.username, password: $viewModel.password, loginAction: {
-                        viewModel.shared.onTriggerEvent(eventType: .Login())
+                        viewModel.shared.onPublisherTriggerEvent(updateStateIfNeed: { state in
+                            if let state = state {
+                                state.username = viewModel.username
+                                state.password = viewModel.password
+                                return state
+                            }
+                            return state
+                            
+                        }, eventType: .Login())
+                        viewModel.shared.onPublisherTriggerEvent(eventType: .Login())
                     }, goToRegisterAction: {
-                        viewModel.shared.onTriggerEvent(eventType: .ChangeLoginMode())
+                        viewModel.shared.onPublisherTriggerEvent(eventType: .ChangeLoginMode())
                     })
                 }
             }.onChange(of: viewModel.loadingState == .loaded(nil)) {

@@ -1,13 +1,11 @@
 import SwiftUI
 import Shared
 
-let appText = iOSApp.appText
+let appText = SwiftKoin.shared.appText
 
 @main
 struct iOSApp: App {
     
-    @LazyKoin static var appText: AppText
-
     @StateObject private var router: SwiftAppRouter = SwiftAppRouter()
 
     var body: some Scene {

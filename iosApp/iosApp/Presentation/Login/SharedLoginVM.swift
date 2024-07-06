@@ -19,7 +19,7 @@ class SharedLoginVM: SharedViewModel<LoginViewModel> {
 
     override init() {
         super.init()
-        shared.notifyUIPublisher { state in
+        shared.onNotifyUIPublisher { state in
             if let state = state {
                 self.username = state.username
                 self.password = state.password

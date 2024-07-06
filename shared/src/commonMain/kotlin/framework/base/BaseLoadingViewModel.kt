@@ -2,9 +2,8 @@ package framework.base
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
-import org.koin.core.component.KoinComponent
 
-abstract class BaseLoadingViewModel<ViewState, ViewEvent> : BaseViewModel<LoadingState<ViewState>, ViewEvent>(), KoinComponent {
+abstract class BaseLoadingViewModel<ViewState, ViewEvent> : BaseViewModel<LoadingState<ViewState>, ViewEvent>() {
 
     abstract fun initialLoadingState(): ViewState
     override fun initialState() = LoadingState.Idle

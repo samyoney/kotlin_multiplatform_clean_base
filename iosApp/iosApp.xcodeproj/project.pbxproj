@@ -10,10 +10,10 @@
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
+		4470219B2C391DC800C855EC /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 4470219A2C391DC800C855EC /* RswiftLibrary */; };
+		4470219D2C391DC800C855EC /* rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 4470219C2C391DC800C855EC /* rswift */; };
 		7555FF83242A565900829871 /* SwiftAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* SwiftAppView.swift */; };
 		DEAA03522C36A28E0068928C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAA03512C36A28E0068928C /* SplashView.swift */; };
-		DEAA03552C36A4BD0068928C /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = DEAA03542C36A4BD0068928C /* RswiftLibrary */; };
-		DEAA03572C36A4BD0068928C /* rswift in Frameworks */ = {isa = PBXBuildFile; productRef = DEAA03562C36A4BD0068928C /* rswift */; };
 		DEE00B6F2C34DEB000C8048F /* Koin+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B6E2C34DEB000C8048F /* Koin+Extension.swift */; };
 		DEE00B712C34E86B00C8048F /* SwiftAppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B702C34E86B00C8048F /* SwiftAppRouter.swift */; };
 		DEE00B772C34EB0300C8048F /* Loading+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B762C34EB0300C8048F /* Loading+Extension.swift */; };
@@ -70,8 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEAA03552C36A4BD0068928C /* RswiftLibrary in Frameworks */,
-				DEAA03572C36A4BD0068928C /* rswift in Frameworks */,
+				4470219B2C391DC800C855EC /* RswiftLibrary in Frameworks */,
+				4470219D2C391DC800C855EC /* rswift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,8 +252,8 @@
 			);
 			name = iosApp;
 			packageProductDependencies = (
-				DEAA03542C36A4BD0068928C /* RswiftLibrary */,
-				DEAA03562C36A4BD0068928C /* rswift */,
+				4470219A2C391DC800C855EC /* RswiftLibrary */,
+				4470219C2C391DC800C855EC /* rswift */,
 			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* KotlinMultiplatformBase.app */;
@@ -285,7 +285,7 @@
 			);
 			mainGroup = 7555FF72242A565900829871;
 			packageReferences = (
-				DEAA03532C36A4BD0068928C /* XCRemoteSwiftPackageReference "R" */,
+				447021992C391DC800C855EC /* XCRemoteSwiftPackageReference "R.swift" */,
 			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
@@ -586,6 +586,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		447021992C391DC800C855EC /* XCRemoteSwiftPackageReference "R.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.5.0;
+			};
+		};
 		DEAA03532C36A4BD0068928C /* XCRemoteSwiftPackageReference "R" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mac-cain13/R.swift";
@@ -597,14 +605,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DEAA03542C36A4BD0068928C /* RswiftLibrary */ = {
+		4470219A2C391DC800C855EC /* RswiftLibrary */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DEAA03532C36A4BD0068928C /* XCRemoteSwiftPackageReference "R" */;
+			package = 447021992C391DC800C855EC /* XCRemoteSwiftPackageReference "R.swift" */;
 			productName = RswiftLibrary;
 		};
-		DEAA03562C36A4BD0068928C /* rswift */ = {
+		4470219C2C391DC800C855EC /* rswift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DEAA03532C36A4BD0068928C /* XCRemoteSwiftPackageReference "R" */;
+			package = 447021992C391DC800C855EC /* XCRemoteSwiftPackageReference "R.swift" */;
 			productName = rswift;
 		};
 		DEAA03582C36A4CB0068928C /* RswiftGenerateInternalResources */ = {

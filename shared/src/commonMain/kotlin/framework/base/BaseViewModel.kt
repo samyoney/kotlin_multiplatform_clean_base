@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 
@@ -34,11 +35,31 @@ abstract class BaseViewModel<ViewState, ViewEvent> : ViewModel(), KoinComponent 
         viewModelScope.launch(handler, block = block)
     }
 
-    open fun notifyUIPublisher(onValueChange: (ViewState) -> Unit) = safeLaunch {
+    final fun onPublisherTriggerEvent(
+        eventType: ViewEvent
+    ) {
+        onTriggerEvent(eventType)
+    }
+
+    /*iOS処理部分: 開始*/
+    final fun onPublisherTriggerEvent(
+        updateStateIfNeed: (currentState: ViewState) -> ViewState,
+        eventType: ViewEvent
+    ) {
+        onPublisherUpdateState(updateStateIfNeed)
+        onTriggerEvent(eventType)
+    }
+
+    private fun onPublisherUpdateState(updateStateIfNeed: (currentState: ViewState) -> ViewState) = safeLaunch {
+        uiState.update { updateStateIfNeed(uiState.value) }
+    }
+
+    final fun onNotifyUIPublisher(onValueChange: (ViewState) -> Unit) = safeLaunch {
         uiState.collect { value ->
             onValueChange(value)
         }
     }
+    /* 終了 */
 
     protected suspend fun <T> executeLocalUseCase(
         callFlow: Flow<T>,
