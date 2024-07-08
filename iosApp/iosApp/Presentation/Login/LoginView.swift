@@ -26,38 +26,9 @@ struct LoginView: View {
         NavigationView {
             VStack {
                 if viewModel.isRegisterScreen {
-                    RegisterContentView(username: $viewModel.username, password: $viewModel.password, name: $viewModel.name, birth: $viewModel.birth, registerAction: {
-                        viewModel.shared.onPublisherTriggerEvent(updateStateIfNeed: { state in
-                            if let state = state {
-                                state.username = viewModel.username
-                                state.username = viewModel.username
-                                state.name = viewModel.name
-                                state.birth = viewModel.birth
-                                return state
-                            }
-                            return state
-                            
-                        }, eventType: .Login())
-
-                        viewModel.shared.onPublisherTriggerEvent(eventType: .Register())
-                    }, backToLoginAction: {
-                        viewModel.shared.onPublisherTriggerEvent(eventType: .ChangeLoginMode())
-                    })
+                    RegisterContentView(viewModel: viewModel)
                 } else {
-                    LoginContentView(username: $viewModel.username, password: $viewModel.password, loginAction: {
-                        viewModel.shared.onPublisherTriggerEvent(updateStateIfNeed: { state in
-                            if let state = state {
-                                state.username = viewModel.username
-                                state.password = viewModel.password
-                                return state
-                            }
-                            return state
-                            
-                        }, eventType: .Login())
-                        viewModel.shared.onPublisherTriggerEvent(eventType: .Login())
-                    }, goToRegisterAction: {
-                        viewModel.shared.onPublisherTriggerEvent(eventType: .ChangeLoginMode())
-                    })
+                    LoginContentView(viewModel: viewModel)
                 }
             }.onChange(of: viewModel.loadingState == .loaded(nil)) {
                 appRouter.navigateTo(.sam)
@@ -87,33 +58,33 @@ struct LoginView: View {
 }
 
 struct LoginContentView: View {
-    @Binding var username: String
-    @Binding var password: String
-    
-    var loginAction: () -> Void
-    var goToRegisterAction: () -> Void
-    
+    @ObservedObject var viewModel: SharedLoginVM
+            
     var body: some View {
         VStack {
             ExtraLargeSpacer()
             LoginInputField(
-                value: $username, label: appText.name(),
+                value: $viewModel.username, label: appText.name(),
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
-            )
+            ).onReceive(viewModel.$username, perform: { newValue in
+                viewModel.shared.onTriggerEvent(eventType: .InputUsername(text: newValue))
+            })
             ExtraLargeSpacer()
             LoginInputField(
-                value: $password, label: appText.password(),
+                value: $viewModel.password, label: appText.password(),
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
-            )
+            ).onReceive(viewModel.$password, perform: { newValue in
+                viewModel.shared.onTriggerEvent(eventType: .InputPassword(text: newValue))
+            })
             ExtraLargeSpacer()
             LoginButton(title: appText.login()) {
-                loginAction()
+                viewModel.shared.onTriggerEvent(eventType: .Login())
             }
             ExtraLargeSpacer()
             LoginButton(title: appText.goToRegister()) {
-                goToRegisterAction()
+                viewModel.shared.onTriggerEvent(eventType: .ChangeLoginMode())
             }
         }
         .padding(.horizontal, 16)
@@ -121,44 +92,45 @@ struct LoginContentView: View {
 }
 
 struct RegisterContentView: View {
-    @Binding var username: String
-    @Binding var password: String
-    @Binding var name: String
-    @Binding var birth: String
-    
-    var registerAction: () -> Void
-    var backToLoginAction: () -> Void
+    @ObservedObject var viewModel: SharedLoginVM
     
     var body: some View {
         VStack {
             ExtraLargeSpacer()
             LoginInputField(
-                value: $username, label: appText.name(),
+                value: $viewModel.username, label: appText.name(),
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
-            )
+            ).onReceive(viewModel.$username, perform: { newValue in
+                viewModel.shared.onTriggerEvent(eventType: .InputUsername(text: newValue))
+            })
             ExtraLargeSpacer()
             LoginInputField(
-                value: $password, label: appText.password(),
+                value: $viewModel.password, label: appText.password(),
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
-            )
+            ).onReceive(viewModel.$password, perform: { newValue in
+                viewModel.shared.onTriggerEvent(eventType: .InputPassword(text: newValue))
+            })
             ExtraLargeSpacer()
             LoginInputField(
-                value: $name, label: appText.name(),
+                value: $viewModel.name, label: appText.name(),
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
-            )
+            ).onReceive(viewModel.$name, perform: { newValue in
+                viewModel.shared.onTriggerEvent(eventType: .InputName(text: newValue))
+            })
             ExtraLargeSpacer()
-            LoginBirthButton(birth: $birth) { year, month in
+            LoginBirthButton(birth: $viewModel.birth) { year, month in
+                viewModel.shared.onTriggerEvent(eventType: .InputBirth(year: year, month: month))
             }
             ExtraLargeSpacer()
             LoginButton(title: appText.register()) {
-                registerAction()
+                viewModel.shared.onTriggerEvent(eventType: .Register())
             }
             ExtraLargeSpacer()
             LoginButton(title: appText.backToLogin()) {
-                backToLoginAction()
+                viewModel.shared.onTriggerEvent(eventType: .ChangeLoginMode())
             }
         }
         .padding(.horizontal, 16)
