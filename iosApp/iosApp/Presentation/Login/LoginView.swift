@@ -59,7 +59,7 @@ struct LoginView: View {
 
 struct LoginContentView: View {
     @ObservedObject var viewModel: SharedLoginVM
-            
+    
     var body: some View {
         VStack {
             ExtraLargeSpacer()
@@ -67,17 +67,25 @@ struct LoginContentView: View {
                 value: $viewModel.username, label: appText.name(),
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
-            ).onReceive(viewModel.$username, perform: { newValue in
+            ).onChange(of: viewModel.username) { _, newValue in
                 viewModel.shared.onTriggerEvent(eventType: .InputUsername(text: newValue))
-            })
+                let validValue = viewModel.shared.getSharedData().username
+                if viewModel.username != validValue {
+                    viewModel.refreshUIPublisher()
+                }
+            }
             ExtraLargeSpacer()
             LoginInputField(
                 value: $viewModel.password, label: appText.password(),
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
-            ).onReceive(viewModel.$password, perform: { newValue in
+            ).onChange(of: viewModel.password) { _, newValue in
                 viewModel.shared.onTriggerEvent(eventType: .InputPassword(text: newValue))
-            })
+                let validValue = viewModel.shared.getSharedData().password
+                if viewModel.password != validValue {
+                    viewModel.refreshUIPublisher()
+                }
+            }
             ExtraLargeSpacer()
             LoginButton(title: appText.login()) {
                 viewModel.shared.onTriggerEvent(eventType: .Login())
@@ -101,25 +109,37 @@ struct RegisterContentView: View {
                 value: $viewModel.username, label: appText.name(),
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
-            ).onReceive(viewModel.$username, perform: { newValue in
+            ).onChange(of: viewModel.username) { _, newValue in
                 viewModel.shared.onTriggerEvent(eventType: .InputUsername(text: newValue))
-            })
+                let validValue = viewModel.shared.getSharedData().username
+                if viewModel.username != validValue {
+                    viewModel.refreshUIPublisher()
+                }
+            }
             ExtraLargeSpacer()
             LoginInputField(
                 value: $viewModel.password, label: appText.password(),
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
-            ).onReceive(viewModel.$password, perform: { newValue in
+            ).onChange(of: viewModel.password) { _, newValue in
                 viewModel.shared.onTriggerEvent(eventType: .InputPassword(text: newValue))
-            })
+                let validValue = viewModel.shared.getSharedData().password
+                if viewModel.password != validValue {
+                    viewModel.refreshUIPublisher()
+                }
+            }
             ExtraLargeSpacer()
             LoginInputField(
                 value: $viewModel.name, label: appText.name(),
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
-            ).onReceive(viewModel.$name, perform: { newValue in
+            ).onChange(of: viewModel.name) { _, newValue in
                 viewModel.shared.onTriggerEvent(eventType: .InputName(text: newValue))
-            })
+                let validValue = viewModel.shared.getSharedData().name
+                if viewModel.name != validValue {
+                    viewModel.refreshUIPublisher()
+                }
+            }
             ExtraLargeSpacer()
             LoginBirthButton(birth: $viewModel.birth) { year, month in
                 viewModel.shared.onTriggerEvent(eventType: .InputBirth(year: year, month: month))

@@ -20,7 +20,7 @@ class SharedSamVM: SharedViewModel<SamViewModel> {
 
     override init() {
         super.init()
-        shared.onNotifyUIPublisher { state in
+        shared.onSharedDataListener { state in
             if let state = state {
                 self.listCourse = state.listCourse
                 self.listStudent = state.listStudent

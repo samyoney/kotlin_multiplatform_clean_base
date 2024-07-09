@@ -14,7 +14,7 @@ class SharedSplashVM: SharedViewModel<SplashViewModel> {
     
     override init() {
         super.init()
-        shared.onNotifyUIPublisher { state in
+        shared.onSharedDataListener { state in
             if let state = state {
                 self.loadingState = state.asSwiftState()
             }

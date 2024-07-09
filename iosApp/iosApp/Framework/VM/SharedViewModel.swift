@@ -13,10 +13,10 @@ import SwiftUI
 
 class SharedViewModel<VM : ViewModel> : ObservableObject, ViewModelStoreOwner {
     
-    var viewModelStore: ViewModelStore = ViewModelStore()
+    internal var viewModelStore: ViewModelStore = ViewModelStore()
     
     private let key: String = String(describing: type(of: VM.self))
-    
+
     @LazyKoin private var viewModel: VM
     
     init() {

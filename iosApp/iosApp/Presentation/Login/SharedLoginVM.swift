@@ -19,15 +19,20 @@ class SharedLoginVM: SharedViewModel<LoginViewModel> {
 
     override init() {
         super.init()
-        shared.onNotifyUIPublisher { state in
-            if let state = state {
-                self.username = state.username
-                self.password = state.password
-                self.name = state.name
-                self.birth = state.birth
-                self.isRegisterScreen = state.isRegisterScreen
-                self.loadingState = state.loadingState.asSwiftState()
-            }
+        shared.onSharedDataListener { state in
+            self.refreshUIPublisher(state)
+        }
+    }
+    
+    func refreshUIPublisher(_ state: LoginState? = nil) {
+        let state = state ?? shared.getSharedData()
+        DispatchQueue.main.async { [weak self] in
+            self?.username = state.username
+            self?.password = state.password
+            self?.name = state.name
+            self?.birth = state.birth
+            self?.isRegisterScreen = state.isRegisterScreen
+            self?.loadingState = state.loadingState.asSwiftState()
         }
     }
 }
