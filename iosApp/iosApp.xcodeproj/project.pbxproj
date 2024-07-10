@@ -13,6 +13,8 @@
 		4470219B2C391DC800C855EC /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 4470219A2C391DC800C855EC /* RswiftLibrary */; };
 		4470219D2C391DC800C855EC /* rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 4470219C2C391DC800C855EC /* rswift */; };
 		7555FF83242A565900829871 /* SwiftAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* SwiftAppView.swift */; };
+		DE039D772C3D3B63005C02D4 /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE039D762C3D3B63005C02D4 /* Publisher+Extension.swift */; };
+		DE8BFF2E2C3E4FDC00F966B1 /* BaseSharedVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8BFF2D2C3E4FDC00F966B1 /* BaseSharedVM.swift */; };
 		DEAA03522C36A28E0068928C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAA03512C36A28E0068928C /* SplashView.swift */; };
 		DEE00B6F2C34DEB000C8048F /* Koin+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B6E2C34DEB000C8048F /* Koin+Extension.swift */; };
 		DEE00B712C34E86B00C8048F /* SwiftAppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B702C34E86B00C8048F /* SwiftAppRouter.swift */; };
@@ -20,7 +22,6 @@
 		DEE00B7B2C34ECF600C8048F /* ErrorDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B7A2C34ECF600C8048F /* ErrorDialog.swift */; };
 		DEE00B7E2C34EF8C00C8048F /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B7C2C34EF8C00C8048F /* Spacer.swift */; };
 		DEE00B7F2C34EF8C00C8048F /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B7D2C34EF8C00C8048F /* ProgressIndicator.swift */; };
-		DEE00B832C351EF600C8048F /* SharedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE00B822C351EF600C8048F /* SharedViewModel.swift */; };
 		DEE00B852C35351600C8048F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = DEE00B842C35351600C8048F /* Localizable.xcstrings */; };
 		DEEB6B372C36342D008B6587 /* SharedSplashVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB6B362C36342D008B6587 /* SharedSplashVM.swift */; };
 		DEEB6B392C36366F008B6587 /* SwiftLoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB6B382C36366F008B6587 /* SwiftLoadingState.swift */; };
@@ -43,6 +44,8 @@
 		7555FF82242A565900829871 /* SwiftAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAppView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB3632DC29227652001CCB65 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		DE039D762C3D3B63005C02D4 /* Publisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
+		DE8BFF2D2C3E4FDC00F966B1 /* BaseSharedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSharedVM.swift; sourceTree = "<group>"; };
 		DEAA03512C36A28E0068928C /* SplashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SplashView.swift; path = ../../SplashView.swift; sourceTree = "<group>"; };
 		DEE00B6E2C34DEB000C8048F /* Koin+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Koin+Extension.swift"; sourceTree = "<group>"; };
 		DEE00B702C34E86B00C8048F /* SwiftAppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAppRouter.swift; sourceTree = "<group>"; };
@@ -50,7 +53,6 @@
 		DEE00B7A2C34ECF600C8048F /* ErrorDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorDialog.swift; sourceTree = "<group>"; };
 		DEE00B7C2C34EF8C00C8048F /* Spacer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
 		DEE00B7D2C34EF8C00C8048F /* ProgressIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
-		DEE00B822C351EF600C8048F /* SharedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViewModel.swift; sourceTree = "<group>"; };
 		DEE00B842C35351600C8048F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		DEEB6B362C36342D008B6587 /* SharedSplashVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSplashVM.swift; sourceTree = "<group>"; };
 		DEEB6B382C36366F008B6587 /* SwiftLoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLoadingState.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				DEE00B6E2C34DEB000C8048F /* Koin+Extension.swift */,
 				DEE00B762C34EB0300C8048F /* Loading+Extension.swift */,
+				DE039D762C3D3B63005C02D4 /* Publisher+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -177,8 +180,8 @@
 		DEE00B862C35461000C8048F /* VM */ = {
 			isa = PBXGroup;
 			children = (
-				DEE00B822C351EF600C8048F /* SharedViewModel.swift */,
 				DEEB6B382C36366F008B6587 /* SwiftLoadingState.swift */,
+				DE8BFF2D2C3E4FDC00F966B1 /* BaseSharedVM.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -364,14 +367,15 @@
 				DEEB6B5E2C363C42008B6587 /* StudentListView.swift in Sources */,
 				DEEB6B432C3639AC008B6587 /* SharedSamVM.swift in Sources */,
 				DEAA03522C36A28E0068928C /* SplashView.swift in Sources */,
+				DE8BFF2E2C3E4FDC00F966B1 /* BaseSharedVM.swift in Sources */,
 				DEEB6B392C36366F008B6587 /* SwiftLoadingState.swift in Sources */,
 				DEE00B7E2C34EF8C00C8048F /* Spacer.swift in Sources */,
+				DE039D772C3D3B63005C02D4 /* Publisher+Extension.swift in Sources */,
 				DEEB6B372C36342D008B6587 /* SharedSplashVM.swift in Sources */,
 				7555FF83242A565900829871 /* SwiftAppView.swift in Sources */,
 				DEEB6B3D2C36398A008B6587 /* LoginView.swift in Sources */,
 				DEEB6B3F2C363996008B6587 /* SharedLoginVM.swift in Sources */,
 				DEEB6B652C363D60008B6587 /* LoginInputField.swift in Sources */,
-				DEE00B832C351EF600C8048F /* SharedViewModel.swift in Sources */,
 				DEE00B7B2C34ECF600C8048F /* ErrorDialog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

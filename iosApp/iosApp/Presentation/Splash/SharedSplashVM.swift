@@ -9,16 +9,15 @@
 import Foundation
 import Shared
 
-class SharedSplashVM: SharedViewModel<SplashViewModel> {
+class SharedSplashVM: BaseSharedVM<LoadingState, SplashEvent> {
     @Published var loadingState: SwiftLoadingState<SplashState> = .idle
+
+    override func createSharedVM() -> SplashViewModel {
+        return SwiftKoin.shared.inject()
+    }
     
-    override init() {
-        super.init()
-        shared.onSharedDataListener { state in
-            if let state = state {
-                self.loadingState = state.asSwiftState()
-            }
-        }
+    override func onNotifyPublisherDidChange(state: any LoadingState) {
+        loadingState = state.asSwiftState()
     }
 }
 

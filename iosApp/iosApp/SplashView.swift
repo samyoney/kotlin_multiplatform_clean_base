@@ -24,7 +24,7 @@ struct SplashView: View {
             }
         }
         .onAppear(perform: {
-            viewModel.shared.onTriggerEvent(eventType: .InitData())
+            viewModel.onTriggerEvent(eventType: .InitData())
         })
     }
 }

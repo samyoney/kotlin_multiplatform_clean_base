@@ -12,14 +12,19 @@ import SwiftUI
 
 
 @propertyWrapper
-public struct LazyKoin<T> {
+public struct KoinInject<T> {
     public lazy var wrappedValue: T = {
-        guard let result = SwiftKoin.shared.get(objCClass: T.self as! AnyClass) as? T else {
-             fatalError("Koin can't provide an instance of type: \(T.self)")
-           }
-
-        return result
+        return SwiftKoin.shared.inject()
     }()
 
     public init() { }
+}
+
+extension SwiftKoin {
+    func inject<T>() -> T{
+        guard let result = SwiftKoin.shared.get(objCClass: T.self as! AnyClass) as? T else {
+             fatalError("Koin can't provide an instance of type: \(T.self)")
+           }
+        return result
+    }
 }

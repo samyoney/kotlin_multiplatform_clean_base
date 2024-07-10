@@ -68,11 +68,7 @@ struct LoginContentView: View {
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
             ).onChange(of: viewModel.username) { _, newValue in
-                viewModel.shared.onTriggerEvent(eventType: .InputUsername(text: newValue))
-                let validValue = viewModel.shared.getSharedData().username
-                if viewModel.username != validValue {
-                    viewModel.refreshUIPublisher()
-                }
+                viewModel.onTriggerEvent(eventType: .InputUsername(text: newValue))
             }
             ExtraLargeSpacer()
             LoginInputField(
@@ -80,19 +76,15 @@ struct LoginContentView: View {
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
             ).onChange(of: viewModel.password) { _, newValue in
-                viewModel.shared.onTriggerEvent(eventType: .InputPassword(text: newValue))
-                let validValue = viewModel.shared.getSharedData().password
-                if viewModel.password != validValue {
-                    viewModel.refreshUIPublisher()
-                }
+                viewModel.onTriggerEvent(eventType: .InputPassword(text: newValue))
             }
             ExtraLargeSpacer()
             LoginButton(title: appText.login()) {
-                viewModel.shared.onTriggerEvent(eventType: .Login())
+                viewModel.onTriggerEvent(eventType: .Login())
             }
             ExtraLargeSpacer()
             LoginButton(title: appText.goToRegister()) {
-                viewModel.shared.onTriggerEvent(eventType: .ChangeLoginMode())
+                viewModel.onTriggerEvent(eventType: .ChangeLoginMode())
             }
         }
         .padding(.horizontal, 16)
@@ -110,11 +102,7 @@ struct RegisterContentView: View {
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
             ).onChange(of: viewModel.username) { _, newValue in
-                viewModel.shared.onTriggerEvent(eventType: .InputUsername(text: newValue))
-                let validValue = viewModel.shared.getSharedData().username
-                if viewModel.username != validValue {
-                    viewModel.refreshUIPublisher()
-                }
+                viewModel.onTriggerEvent(eventType: .InputUsername(text: newValue))
             }
             ExtraLargeSpacer()
             LoginInputField(
@@ -122,11 +110,7 @@ struct RegisterContentView: View {
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
             ).onChange(of: viewModel.password) { _, newValue in
-                viewModel.shared.onTriggerEvent(eventType: .InputPassword(text: newValue))
-                let validValue = viewModel.shared.getSharedData().password
-                if viewModel.password != validValue {
-                    viewModel.refreshUIPublisher()
-                }
+                viewModel.onTriggerEvent(eventType: .InputPassword(text: newValue))
             }
             ExtraLargeSpacer()
             LoginInputField(
@@ -134,23 +118,19 @@ struct RegisterContentView: View {
                 placeholder: appText.placeHolder(),
                 helperText: appText.description_()
             ).onChange(of: viewModel.name) { _, newValue in
-                viewModel.shared.onTriggerEvent(eventType: .InputName(text: newValue))
-                let validValue = viewModel.shared.getSharedData().name
-                if viewModel.name != validValue {
-                    viewModel.refreshUIPublisher()
-                }
+                viewModel.onTriggerEvent(eventType: .InputName(text: newValue))
             }
             ExtraLargeSpacer()
             LoginBirthButton(birth: $viewModel.birth) { year, month in
-                viewModel.shared.onTriggerEvent(eventType: .InputBirth(year: year, month: month))
+                viewModel.onTriggerEvent(eventType: .InputBirth(year: year, month: month))
             }
             ExtraLargeSpacer()
             LoginButton(title: appText.register()) {
-                viewModel.shared.onTriggerEvent(eventType: .Register())
+                viewModel.onTriggerEvent(eventType: .Register())
             }
             ExtraLargeSpacer()
             LoginButton(title: appText.backToLogin()) {
-                viewModel.shared.onTriggerEvent(eventType: .ChangeLoginMode())
+                viewModel.onTriggerEvent(eventType: .ChangeLoginMode())
             }
         }
         .padding(.horizontal, 16)

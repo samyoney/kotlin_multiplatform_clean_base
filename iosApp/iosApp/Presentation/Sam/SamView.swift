@@ -19,7 +19,7 @@ struct SamView: View {
             VStack {
                 if viewModel.isCourseScreen {
                     CourseListView(courses: viewModel.listCourse) { id in
-                        viewModel.shared.onTriggerEvent(eventType: .SelectCourse(id: id))
+                        viewModel.onTriggerEvent(eventType: .SelectCourse(id: id))
                     }
                 } else {
                     Spacer(minLength: 30)
@@ -28,7 +28,7 @@ struct SamView: View {
                             .font(.title)
                         Spacer(minLength: 20)
                         StudentListView(isRegistered: false, students: viewModel.listStudent) { id in
-                            viewModel.shared.onTriggerEvent(eventType: .RegisterStudent(id: id))
+                            viewModel.onTriggerEvent(eventType: .RegisterStudent(id: id))
                         }
                     }
                     Spacer(minLength: 30)
@@ -37,7 +37,7 @@ struct SamView: View {
                             .font(.title)
                         Spacer(minLength: 20)
                         StudentListView(isRegistered: true, students: viewModel.listStudentByCode) { id in
-                            viewModel.shared.onTriggerEvent(eventType: .RemoveStudent(id: id))
+                            viewModel.onTriggerEvent(eventType: .RemoveStudent(id: id))
                         }
                     }
                 }
@@ -55,7 +55,7 @@ struct SamView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     if !viewModel.isCourseScreen {
                         Button {
-                            viewModel.shared.onTriggerEvent(eventType: .Back())
+                            viewModel.onTriggerEvent(eventType: .Back())
                         } label: {
                             Image(systemName: "chevron.left")
                                 .foregroundColor(Color(R.color.orangeBgColor))
@@ -65,7 +65,7 @@ struct SamView: View {
             }
         }
         .onAppear {
-            viewModel.shared.onTriggerEvent(eventType: .InitData())
+            viewModel.onTriggerEvent(eventType: .InitData())
         }
         
     }

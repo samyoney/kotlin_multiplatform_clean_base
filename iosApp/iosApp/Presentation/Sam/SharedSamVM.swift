@@ -12,21 +12,20 @@ import Shared
 extension CourseDto: Identifiable {}
 extension StudentDto: Identifiable {}
 
-class SharedSamVM: SharedViewModel<SamViewModel> {
+class SharedSamVM: BaseSharedVM<SamState, SamEvent> {
     @Published var listCourse: [CourseDto] = []
     @Published var listStudent: [StudentDto] = []
     @Published var listStudentByCode: [StudentDto] = []
     @Published var isCourseScreen: Bool = true
-
-    override init() {
-        super.init()
-        shared.onSharedDataListener { state in
-            if let state = state {
-                self.listCourse = state.listCourse
-                self.listStudent = state.listStudent
-                self.listStudentByCode = state.listStudentByCode
-                self.isCourseScreen = state.isCourseScreen
-            }
-        }
+    
+    override func createSharedVM() -> SamViewModel {
+        return SwiftKoin.shared.inject()
+    }
+    
+    override func onNotifyPublisherDidChange(state: SamState) {
+        self.listCourse = state.listCourse
+        self.listStudent = state.listStudent
+        self.listStudentByCode = state.listStudentByCode
+        self.isCourseScreen = state.isCourseScreen
     }
 }
