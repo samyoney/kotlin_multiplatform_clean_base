@@ -66,7 +66,7 @@ android {
         implementation(libs.androidx.activity.compose)
         implementation(libs.accompanist.systemuicontroller)
         implementation(libs.androidx.navigation.compose)
-
+        implementation(libs.androidx.core.splashscreen)
         implementation(libs.accompanist.insets)
         debugImplementation(compose.uiTooling)
     }

@@ -1,7 +1,6 @@
 package org.sam.multiplatform_base.presentation.login.view
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -13,8 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import org.sam.multiplatform_base.app.component.ExtraSmallSpacer
-import org.sam.multiplatform_base.app.theme.LoginTextFieldBorder
 import org.sam.multiplatform_base.app.theme.AppTypography
 import org.sam.multiplatform_base.app.theme.*
 import org.sam.multiplatform_base.app.theme.diaryInputFieldText
@@ -48,11 +47,8 @@ fun LoginInputField(
             onValueChange = onValueChange,
             modifier = Modifier
                 .fillMaxWidth()
-                .background(TransparentColor)
-                .border(
-                    LoginTextFieldBorder,
-                    shape = AppShapes.medium
-                ),
+                .background(BaseColor)
+               ,
             singleLine = true,
             textStyle = diaryInputFieldText.copy(color = BaseTextColor),
             placeholder = {
@@ -70,4 +66,10 @@ fun LoginInputField(
             style = AppTypography.bodyMedium
         )
     }
+}
+
+@Preview
+@Composable
+fun LoginInputFieldPreview() {
+    LoginInputField(label = "Hello", value = "", onValueChange = {}, placeholder = "Hello", helperText = "")
 }

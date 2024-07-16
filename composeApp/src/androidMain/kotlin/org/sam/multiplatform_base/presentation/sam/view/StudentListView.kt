@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import data.model.dto.StudentDto
 import org.koin.compose.koinInject
 import org.sam.multiplatform_base.app.theme.*
@@ -52,7 +53,7 @@ fun StudentCard(isRegistered: Boolean, student: StudentDto, onClick: (id: Long) 
                     containerColor = if (isRegistered) Color.Red else BgColor, contentColor = BaseColor
                 ), modifier = Modifier
                     .height(dimen54())
-                    .padding(dimen4())
+                    .padding(dimen8())
                     .clip(AppShapes.small)
             ) {
                 Text(
@@ -61,5 +62,13 @@ fun StudentCard(isRegistered: Boolean, student: StudentDto, onClick: (id: Long) 
                 )
             }
         }
+    }
+}
+
+@Preview
+@Composable
+fun StudentCardPreview() {
+    StudentCard(isRegistered = false, student = StudentDto(1, "1", "SAM", "14/1994")) {
+
     }
 }

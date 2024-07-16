@@ -11,6 +11,12 @@ class RemoveStudentFromCourseUseCase(private val studentRepository: StudentRepos
 
     operator fun invoke(id: String) = flow {
         val student = studentRepository.getStudent(id)
-        emit(studentRepository.updateStudent(student))
+        val removeStudent = student.copy(
+            id = student.id,
+            birth = student.birth,
+            name = student.name,
+            courseId = null
+        )
+        emit(studentRepository.updateStudent(removeStudent))
     }.flowOn(Dispatchers.IO)
 }

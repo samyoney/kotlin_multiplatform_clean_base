@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import org.sam.multiplatform_base.app.controller.SetupSystemUi
@@ -37,6 +38,7 @@ class MainActivity : ComponentActivity() {
             androidLogger()
             androidContext(applicationContext)
         }
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         setContent {
             MainView {
