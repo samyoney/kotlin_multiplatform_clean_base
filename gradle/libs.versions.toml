@@ -30,6 +30,7 @@ dataStoreVersion = "1.1.1"
 atomicfu = "0.23.2"
 androidxLifecycle = "2.8.3"
 koinCompose = "3.6.0-Beta4"
+timber = "5.0.1"
 uiTextAndroid = "1.6.8"
 
 [libraries]
@@ -71,6 +72,7 @@ androidx-datastore-preferences-core = { group = "androidx.datastore", name = "da
 kotlinx-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version.ref = "atomicfu" }
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidxLifecycle" }
 androidx-ui-text-android = { group = "androidx.compose.ui", name = "ui-text-android", version.ref = "uiTextAndroid" }
+android-timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

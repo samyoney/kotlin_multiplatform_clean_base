@@ -9,6 +9,7 @@ import org.sam.multiplatfrom_base.AppDatabase
 
 class AndroidPlatform : Platform {
     override val name: String = "Android ${Build.VERSION.SDK_INT}"
+    override val isAndroid: Boolean = true
 }
 
 actual fun providePlatform() = module {

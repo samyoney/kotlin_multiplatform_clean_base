@@ -18,13 +18,10 @@ import androidx.navigation.compose.rememberNavController
 import org.sam.multiplatform_base.app.controller.SetupSystemUi
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import framework.pref.DataStoreManager
-import initKoin
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.koin.android.ext.koin.androidContext
-import org.koin.android.ext.koin.androidLogger
 import org.koin.compose.koinInject
 import org.sam.multiplatform_base.app.theme.AppTheme
 import org.sam.multiplatform_base.app.theme.BaseColor
@@ -34,10 +31,6 @@ import kotlin.system.exitProcess
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        initKoin {
-            androidLogger()
-            androidContext(applicationContext)
-        }
         installSplashScreen()
         super.onCreate(savedInstanceState)
         setContent {

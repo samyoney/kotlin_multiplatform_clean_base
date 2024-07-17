@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 data class RegisterRequest(
     @SerialName("username") val username: String,
     @SerialName("password") val password: String,
-    @SerialName("course_id") val courseId: String,
+    @SerialName("course_id") val courseId: String?,
     @SerialName("name") val name: String,
     @SerialName("birth") val birth: String,
 )

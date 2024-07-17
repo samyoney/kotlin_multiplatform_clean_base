@@ -40,12 +40,12 @@ import viewModel.login.LoginViewModel
 import viewModel.sam.SamViewModel
 import viewModel.splash.SplashViewModel
 
-fun initKoin(appDeclaration: KoinAppDeclaration = {}) =
+fun initKoin(appDeclaration: KoinAppDeclaration = {}, handleLogIfNeed: (message: String) -> Unit = {}) =
     startKoin {
         appDeclaration()
         modules(
             providePlatform(),
-            provideHttpClient(),
+            provideHttpClient(handleLogIfNeed),
             // メイン部分
             provideDao(),
             provideDataStoreManager(),
@@ -97,7 +97,7 @@ private fun provideDataStoreManager() = module {
     single { DataStoreManager(get()) }
 }
 
-private fun provideHttpClient() = module {
+private fun provideHttpClient(handleLogIfNeed: (message: String) -> Unit) = module {
     single(named("BaseURL")) {
         "https://us-central1-samyoney.cloudfunctions.net/api/"
     }
@@ -116,6 +116,11 @@ private fun provideHttpClient() = module {
             install(Logging) {
                 logger = Logger.DEFAULT
                 level = LogLevel.ALL
+                logger = object : Logger {
+                    override fun log(message: String) {
+                        handleLogIfNeed(message)
+                    }
+                }
             }
         }
     }

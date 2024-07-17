@@ -38,8 +38,25 @@ android {
         }
     }
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
+        buildTypes {
+            release {
+                isMinifyEnabled = true
+                isShrinkResources = true
+                isDebuggable = false
+                proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+                )
+            }
+
+            debug {
+                signingConfig = signingConfigs.getByName("debug")
+                isDebuggable = true
+                proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+                )
+            }
         }
     }
     compileOptions {
@@ -48,6 +65,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     dependencies {
         implementation(compose.preview)
@@ -68,6 +86,7 @@ android {
         implementation(libs.androidx.navigation.compose)
         implementation(libs.androidx.core.splashscreen)
         implementation(libs.accompanist.insets)
+        implementation(libs.android.timber)
         debugImplementation(compose.uiTooling)
     }
 }

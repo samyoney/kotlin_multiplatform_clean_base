@@ -11,7 +11,7 @@ class FetchRegisterUseCase(private val repository: AccountRepository) {
     suspend operator fun invoke(
         username: String,
         password: String,
-        courseId: String,
+        courseId: String?,
         name: String,
         birth: String
     ) = flow {

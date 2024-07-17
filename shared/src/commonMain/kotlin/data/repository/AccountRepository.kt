@@ -21,7 +21,7 @@ class AccountRepository(
     suspend fun login(username: String, password: String) =
         loginService.fetch(LoginRequest(username, password))
 
-    suspend fun register(username: String, password: String, courseId: String, name: String, birth: String) =
+    suspend fun register(username: String, password: String, courseId: String?, name: String, birth: String) =
         registerService.fetch(RegisterRequest(username, password, courseId, name, birth))
 
     var username: String

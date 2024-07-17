@@ -87,7 +87,7 @@ class LoginViewModel : BaseViewModel<LoginState, LoginEvent>() {
             return@safeLaunch
         }
         executeRemoteUseCase(
-            fetchRegisterUseCase(uiState.value.username, uiState.value.password, "", uiState.value.name, uiState.value.birth)
+            fetchRegisterUseCase(uiState.value.username, uiState.value.password, null, uiState.value.name, uiState.value.birth)
         ) { res ->
             if (res.status == 0) {
                 val info = uiState.value

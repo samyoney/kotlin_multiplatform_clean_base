@@ -6,6 +6,7 @@ import org.koin.core.module.Module
 
 interface Platform {
     val name: String
+    val isAndroid: Boolean
 }
 
 fun createDataStore(producePath: () -> String): DataStore<Preferences> =
