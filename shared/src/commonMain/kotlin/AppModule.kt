@@ -57,24 +57,24 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}, handleLogIfNeed: (message:
     }
 
 
-private fun provideViewModel() = module {
+fun provideViewModel() = module {
     viewModel { SplashViewModel() }
     viewModel { LoginViewModel() }
     viewModel { SamViewModel() }
 }
 
-private fun provideDao() = module {
+fun provideDao() = module {
     factory { CourseDao(get()) }
     factory { StudentDao(get()) }
 }
 
-private fun provideRepository() = module {
+fun provideRepository() = module {
     factory { AccountRepository(get(), get(), get()) }
     factory { CourseRepository(get(), get()) }
     factory { StudentRepository(get(), get()) }
 }
 
-private fun provideUseCase() = module {
+fun provideUseCase() = module {
     factory { AddStudentIntoCourseUseCase(get()) }
     factory { CheckDataInitializedUseCase(get()) }
     factory { FetchCoursesUseCase(get()) }
@@ -93,11 +93,11 @@ private fun provideUseCase() = module {
     factory { SaveAccountInfoUseCase(get()) }
 }
 
-private fun provideDataStoreManager() = module {
+fun provideDataStoreManager() = module {
     single { DataStoreManager(get()) }
 }
 
-private fun provideHttpClient(handleLogIfNeed: (message: String) -> Unit) = module {
+fun provideHttpClient(handleLogIfNeed: (message: String) -> Unit) = module {
     single(named("BaseURL")) {
         "https://us-central1-samyoney.cloudfunctions.net/api/"
     }
@@ -126,7 +126,7 @@ private fun provideHttpClient(handleLogIfNeed: (message: String) -> Unit) = modu
     }
 }
 
-private fun provideService() = module {
+fun provideService() = module {
     factory { CourseService(get(named("BaseURL")), get()) }
     factory { LoginService(get(named("BaseURL")), get()) }
     factory { RegisterService(get(named("BaseURL")), get()) }

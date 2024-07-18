@@ -10,17 +10,11 @@ class MainApp : Application() {
     override fun onCreate() {
         super.onCreate()
         initKoin({
-            if (isDev()) {
-                Timber.plant(Timber.DebugTree())
-            }
+            Timber.plant(Timber.DebugTree())
             androidLogger()
             androidContext(this@MainApp)
         }, { message ->
-            Timber.i(message)
+            Timber.d(message)
         })
-    }
-
-    private fun isDev(): Boolean {
-        return BuildConfig.DEBUG
     }
 }
