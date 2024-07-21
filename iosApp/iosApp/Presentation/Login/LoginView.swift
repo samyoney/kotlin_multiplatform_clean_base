@@ -122,7 +122,7 @@ struct RegisterContentView: View {
             }
             ExtraLargeSpacer()
             LoginBirthButton(birth: $viewModel.birth) { year, month in
-                viewModel.onTriggerEvent(eventType: .InputBirth(year: year, month: month))
+                viewModel.onTriggerEvent(eventType: .InputBirth(year: Int32(year), month: Int32(month)))
             }
             ExtraLargeSpacer()
             LoginButton(title: appText.register()) {
