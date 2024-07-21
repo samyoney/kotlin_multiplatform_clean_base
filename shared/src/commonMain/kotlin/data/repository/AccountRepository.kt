@@ -14,8 +14,8 @@ class AccountRepository(
     ) {
 
     companion object {
-        private const val USERNAME_KEY = "USERNAME_KEY"
-        private const val PASSWORD_KEY = "PASSWORD_KEY"
+        const val USERNAME_KEY = "USERNAME_KEY"
+        const val PASSWORD_KEY = "PASSWORD_KEY"
     }
 
     suspend fun login(username: String, password: String) =

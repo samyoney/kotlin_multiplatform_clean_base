@@ -46,6 +46,7 @@ kotlin {
             api(libs.androidx.datastore.preferences.core)
             api(libs.androidx.datastore.core.okio)
             api(libs.androidx.lifecycle.viewmodel)
+            api(libs.logging)
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.android)

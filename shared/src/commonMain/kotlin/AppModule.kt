@@ -45,6 +45,7 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}, handleLogIfNeed: (message:
         appDeclaration()
         modules(
             providePlatform(),
+            provideBaseUrl(),
             provideHttpClient(handleLogIfNeed),
             // メイン部分
             provideDao(),
@@ -97,10 +98,13 @@ fun provideDataStoreManager() = module {
     single { DataStoreManager(get()) }
 }
 
-fun provideHttpClient(handleLogIfNeed: (message: String) -> Unit) = module {
+fun provideBaseUrl() = module {
     single(named("BaseURL")) {
         "https://us-central1-samyoney.cloudfunctions.net/api/"
     }
+}
+
+fun provideHttpClient(handleLogIfNeed: (message: String) -> Unit) = module {
     single {
         HttpClient {
             install(ContentNegotiation) {
