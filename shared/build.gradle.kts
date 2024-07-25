@@ -11,6 +11,8 @@ plugins {
 
 kotlin {
     task("testClasses")
+    jvmToolchain(18)
+    jvm()
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
@@ -52,16 +54,18 @@ kotlin {
             implementation(libs.ktor.client.android)
             implementation(libs.android.driver)
             implementation(libs.ktor.client.okhttp)
-            implementation(libs.mockk.android)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
             implementation(libs.native.driver)
         }
-        commonTest.dependencies {
+        jvmTest.dependencies {
+            implementation(libs.ktor.client.apache5)
+            implementation("org.jetbrains.kotlin:kotlin-reflect:2.0.0")
+            implementation("app.cash.sqldelight:sqlite-driver:2.0.2")
             implementation(libs.kotlin.test)
             implementation(libs.insert.koin.test)
-            implementation(libs.mockk.common)
+            implementation(libs.mockk)
         }
     }
 }
