@@ -111,8 +111,8 @@ class RepositoryTest {
         val loginResponse = LoginResponse(0, "")
         val registerRequest = RegisterRequest("", "", null, "", "")
         val registerResponse = RegisterResponse(0, "")
-        val userStored = ""
-        val passStored = ""
+        val userStored = "Sam"
+        val passStored = "Password"
 
         runBlocking {
             coEvery { loginService.fetch(loginRequest) } returns RequestState.Success(loginResponse)

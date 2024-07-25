@@ -61,8 +61,7 @@ kotlin {
         }
         jvmTest.dependencies {
             implementation(libs.ktor.client.apache5)
-            implementation("org.jetbrains.kotlin:kotlin-reflect:2.0.0")
-            implementation("app.cash.sqldelight:sqlite-driver:2.0.2")
+            implementation(libs.sqlite.driver)
             implementation(libs.kotlin.test)
             implementation(libs.insert.koin.test)
             implementation(libs.mockk)

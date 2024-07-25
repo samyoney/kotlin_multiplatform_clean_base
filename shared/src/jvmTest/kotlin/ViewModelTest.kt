@@ -1,4 +1,5 @@
 import app.cash.sqldelight.db.SqlDriver
+import framework.pref.DataStoreManager
 import io.mockk.mockk
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
@@ -15,11 +16,11 @@ class ViewModelTest: KoinTest {
             modules(
                 module {
                     single<AppDatabase> { AppDatabase(mockk<SqlDriver>()) }
+                    single<DataStoreManager> { mockk<DataStoreManager>() }
                 },
                 provideBaseUrl(),
                 provideHttpClient {},
                 provideDao(),
-                provideDataStoreManager(),
                 provideService(),
                 provideRepository(),
                 provideUseCase(),

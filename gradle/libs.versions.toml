@@ -23,7 +23,7 @@ koinTestVersion = "3.1.6"
 kotlin = "2.0.0"
 ktor = "2.3.11"
 logging = "1.5.0"
-mockk = "1.12.3"
+mockk = "1.13.12"
 navigationCompose = "2.7.7"
 sqlDelight = "2.0.1"
 coroutinesVersion = "1.8.1"
@@ -33,6 +33,7 @@ dataStoreVersion = "1.1.1"
 atomicfu = "0.23.2"
 androidxLifecycle = "2.8.3"
 koinCompose = "3.6.0-Beta4"
+sqliteDriver = "2.0.2"
 timber = "5.0.1"
 uiTextAndroid = "1.6.8"
 
@@ -78,6 +79,7 @@ kotlinx-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version.ref = "a
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidxLifecycle" }
 androidx-ui-text-android = { group = "androidx.compose.ui", name = "ui-text-android", version.ref = "uiTextAndroid" }
 android-timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqliteDriver" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
