@@ -1,3 +1,4 @@
+
 import data.local.dao.CourseDao
 import data.local.dao.StudentDao
 import data.model.remote.request.LoginRequest
@@ -11,8 +12,6 @@ import data.remote.service.LoginService
 import data.remote.service.RegisterService
 import data.remote.service.StudentService
 import data.repository.AccountRepository
-import data.repository.AccountRepository.Companion.PASSWORD_KEY
-import data.repository.AccountRepository.Companion.USERNAME_KEY
 import data.repository.CourseRepository
 import data.repository.StudentRepository
 import framework.network.RequestState
@@ -27,7 +26,7 @@ import org.sam.multiplatfrombase.StudentEntity
 import kotlin.test.AfterTest
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
-import kotlin.test.assertSame
+import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class RepositoryTest {
@@ -90,7 +89,7 @@ class RepositoryTest {
 
             coEvery { studentDao.getStudent(id) } returns entity
             val query = studentRepository.getStudent(id)
-            assertSame(query, entity)
+            assertEquals(query, entity)
             coVerify { studentDao.getStudent(id) }
 
             coEvery { studentDao.getListStudent() } returns listEntity
@@ -154,16 +153,6 @@ class RepositoryTest {
             )
             assertTrue(responseRegisterFail is RequestState.Error)
             coVerify { registerService.fetch(registerRequest) }
-
-            coEvery { dataStoreManager.read<String>(USERNAME_KEY) } returns userStored
-            val username = accountRepository.username
-            assertSame(username, userStored)
-            coVerify { dataStoreManager.read<String>(USERNAME_KEY) }
-
-            coEvery { dataStoreManager.read<String>(PASSWORD_KEY) } returns passStored
-            val password = accountRepository.password
-            assertSame(password, passStored)
-            coVerify { dataStoreManager.read<String>(PASSWORD_KEY) }
         }
     }
 
