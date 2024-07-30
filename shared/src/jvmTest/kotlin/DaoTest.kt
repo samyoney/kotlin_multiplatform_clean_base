@@ -1,5 +1,3 @@
-
-import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.jdbc.sqlite.JdbcSqliteDriver
 import data.local.dao.CourseDao
 import data.local.dao.StudentDao
@@ -24,7 +22,7 @@ class DaoTest : KoinTest {
     private lateinit var appDatabase: AppDatabase
 
     @BeforeTest
-    fun beforeStart() {
+    fun setUp() {
         val driver = JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY).apply {
             AppDatabase.Schema.create(this)
         }
@@ -33,10 +31,12 @@ class DaoTest : KoinTest {
 
     private fun injectDependency() {
         startKoin {
-            module {
-                single<AppDatabase> { AppDatabase(mockk<SqlDriver>()) }
+            modules(
+                module {
+                    single<AppDatabase> { mockk() }
+                },
                 provideDao()
-            }
+            )
         }
     }
 
@@ -93,21 +93,22 @@ class DaoTest : KoinTest {
                     birth = "2000-06-15",
                     name = "Michael Johnson",
                     courseId = null
-                ),
-
                 )
+            )
             val studentDao = StudentDao(appDatabase)
             studentDao.insertListStudent(mockStudentList)
             assertEquals(mockStudentList, studentDao.getListStudent())
             assertEquals(mockStudentList.first { it.id == 1L }, studentDao.getStudent(id = "1"))
 
-            studentDao.updateStudent(StudentEntity(
-                id = 3,
-                birth = "2000-06-15",
-                name = "Michael Johnson",
-                courseId = "2"
-            ))
-            assertEquals("2", studentDao.getStudent(id = "2").courseId)
+            studentDao.updateStudent(
+                StudentEntity(
+                    id = 3,
+                    birth = "2000-06-15",
+                    name = "Michael Johnson",
+                    courseId = "2"
+                )
+            )
+            assertEquals("2", studentDao.getStudent(id = "3").courseId)
         }
     }
 
